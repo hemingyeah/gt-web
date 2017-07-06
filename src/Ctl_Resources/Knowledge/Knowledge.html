@@ -1,0 +1,20 @@
+<div class="KnowledgeGroupItem">
+	<div class="container">
+		<GroupTopModel HeadTitle="知识库" Url="#/Web/List/Knowledge"></GroupTopModel>
+		<div class="row Home-Class" style="margin:50px -15px;">
+			<div class="col-lg-5">
+				<img ng-src="{{ImageUrl}}" style="width: 100%;" alt="">
+			</div>
+			<div class="col-lg-7">
+				<TabSet>
+					<Tab heading="{{row.Name}}" ng-repeat="row in KnowlegeList">
+						<div ng-repeat="item in row.Childrens" class="row item" style="margin:15px 0;">
+							<div class="col-lg-8 col-md-8 col-sm-8 col-xs-8 title"><a href="#/Web/Content/Knowledge/{{item.Id}}" ng-bind="item.Name" ng-mousemove="SetImageUrl(item.ImageUrl)"></a></div>
+							<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 t_right" ng-bind="item.AddTime | date:'yyyy-MM-dd'"></div>
+						</div>
+					</Tab>
+				</TabSet>
+			</div>
+		</div>
+	</div>
+</div>

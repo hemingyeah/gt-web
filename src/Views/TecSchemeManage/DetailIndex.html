@@ -1,0 +1,31 @@
+<Panel gtform ng-init="app.Layout = false;" Dialog>
+	<phead>方案首页管理</phead>
+	<pbody>
+		<RowTextBox colspan='2' Label="方案名称" ngmodel="model.Name" ngdisabled="true"></RowTextBox>
+		<FormRow colspan='2' Label="负责人">
+			<DropDown ngmodel="model.FKUserId" placeholder='请选择...' Display='{{$select.selected.AccountName}}' repeat="option.Id as option in Person" filter="AccountName" ngdisabled="true">
+            	<div ng-bind-html="option.AccountName | highlight: $select.search"></div>
+        	</DropDown>
+		</FormRow>
+		<FormRow colspan='2' Label="事务类型">
+			<DropDown ngmodel="model.StuffType" placeholder='请选择...' Display='{{$select.selected.DisplayName}}' repeat="option.Id as option in StuffTypeList" filter="DisplayName" ngdisabled="true">
+            	<div ng-bind-html="option.DisplayName | highlight: $select.search"></div>
+        	</DropDown>
+		</FormRow>
+		<FormRow colspan='2' Label="使用状态">
+			<DropDown ngmodel="model.StuffState" placeholder='请选择...' Display='{{$select.selected.DisplayName}}' repeat="option.Id as option in StuffStateList" filter="DisplayName" ngdisabled="true">
+            	<div ng-bind-html="option.DisplayName | highlight: $select.search"></div>
+        	</DropDown>
+		</FormRow>
+		<RowTextBox colspan='2' Label="描述" ngmodel="model.Description" ngdisabled="true"></RowTextBox>
+	</pbody>
+	<pfoot>
+		<Panel>
+			<phead>首页详情管理</phead>
+			<pbody>
+				<GTGrid ItemCode="row" ListCode="data" ColumnCode="TecSchemeIndexManage" index edit></GTGrid>
+			</pbody>
+		</Panel>
+		<ButtonBar float="right"></ButtonBar>
+	</pfoot>
+</Panel>

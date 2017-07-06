@@ -1,0 +1,50 @@
+
+<Panel Dialog>
+    <phead>生成报表</phead>
+    <pbody style='padding:0px;'>
+        <tabset class="tab-container" ng-init="steps={step1:true}">
+            <tab heading="1、选择表" disabled="true" active="steps.step1">
+                <form name="form1" gtform>
+                    <datagrid agGrid="gridTableOptions"></datagrid>
+                </form>
+            </tab>
+            <tab heading="2、选择字段" disabled="true" active="steps.step2">
+                <div style="height:600px; overflow:auto;">
+                    <datagrid agGrid="gridColumnOptions"></datagrid>
+                </div>
+            </tab>
+            <tab heading="3、配置数据模型" disabled="true" active="steps.step3">
+                <div style="height: 600px; overflow-x: hidden;">
+                    <div class="row" style="line-height: 36px; padding: 5px;">
+                        <div class="col-md-3">列名称</div>
+                        <div class="col-md-3">别名</div>
+                        <div class="col-md-5">公式</div>
+                    </div>
+                    <div class="row" ng-repeat="item in modelStatistics.DtoReportServiceRowStatistics | filter:{DataState:0}" style="line-height: 36px; padding: 5px;">
+                        <div class="col-md-3">{{item.ColumnEnName}}</div>
+                        <div class="col-md-3">
+                            <TextBox ngmodel="item.ParameterTag" ></TextBox>
+                        </div>
+                        <div class="col-md-5">
+                            <TextBox ngmodel="item.Formula" ></TextBox>
+                        </div>
+                    </div>
+                    <div class="row" ng-repeat="item in modelStatistics.DtoReportServiceColumnStatistics" style="line-height: 36px; padding: 5px;">
+                        <div class="col-md-3">统计列</div>
+                        <div class="col-md-3">
+                            <TextBox ngmodel="item.ParameterTag" ></TextBox>
+                        </div>
+                        <div class="col-md-5">
+                            <TextBox ngmodel="item.Formula" ></TextBox>
+                        </div>
+                    </div>
+                </div>
+            </tab>
+        </tabset>
+    </pbody>
+    <pfoot>
+        <ButtonBar event='event_1' ng-show='steps.step1' valid="form1"></ButtonBar>
+        <ButtonBar event='event_2' ng-show='steps.step2'></ButtonBar>
+        <ButtonBar event='event_3' ng-show='steps.step3' valid='form3'></ButtonBar>
+    </pfoot>
+</Panel>

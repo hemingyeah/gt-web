@@ -1,0 +1,14 @@
+<Panel gtform Dialog>
+    <Phead>节点操作</Phead>
+    <Pbody>
+        <form gtform name='form'>
+            <RowTextBox colspan='2' Label="节点名称" ngmodel="model.GroupName" Required maxLength="100"></RowTextBox>
+            <RowTextBox colspan='2' Label="排序" ngmodel="model.OrderIndex" Required></RowTextBox>
+            <RowTextBox colspan='2' Label="邀请码" ngmodel="model.VipCode" maxLength="20"></RowTextBox>
+            <RowTextBox colspan='2' Label="父节点" ngmodel="model.ParentName" ngdisabled="true" ng-show="model.DataState.Value==='Add'"></RowTextBox>
+        </form>
+    </Pbody>
+    <Pfoot>
+        <ButtonBar Float="right" checkbox="true"></ButtonBar>
+    </Pfoot>
+</Panel>

@@ -1,0 +1,49 @@
+<!-- <panel Dialog>
+    <phead> <span ng-if='model.Id'>编辑[资讯]</span> <span ng-if='!model.Id'>新增[资讯]</span></phead>
+    <pbody>
+        <form gtform name='form'>
+            <FormRow colspan="2" Label="资讯名称" required="true">
+                <TextBox ngmodel="model.Name" required="true"></TextBox>
+            </FormRow>
+            <FormRow colspan="2" Label="资讯来源" required="true">
+                <TextBox ngmodel="model.Source" required="true"></TextBox>
+            </FormRow>
+            <FormRow colspan="2" Label="选择背景图片" required="true">
+                <img src="{{imgSrc}}" />
+                <FileInputBtn value="选择图片"></FileInputBtn>
+            </FormRow>
+            <FormRow colspan="2" Label="资讯内容" required="true">
+                <RichTextBox value="资讯内容" ngmodel="Content" richtextid="richtext" uploadtempid="upload" required="true"></RichTextBox>
+            </FormRow>
+        </form>
+    </pbody>
+    <pfoot>
+        <ButtonBar></ButtonBar>
+    </pfoot>
+</panel>
+ -->
+<panel Dialog>
+    <phead> <span ng-if='model.Id'>编辑[Sk]</span> <span ng-if='!model.Id'>新增[Sk]</span></phead>
+    <pbody>
+        <form gtform name='form'>
+            <FormRow colspan="2" Label="Sk" required="true">
+                <TextBox ngmodel="model.Sk" required="true"></TextBox>
+            </FormRow>
+            <FormRow colspan="2" Label="Ak" required="true">
+                <TextBox ngmodel="model.Ak" required="true"></TextBox>
+            </FormRow>
+            <FormRow colspan="2" Label="AppPlatformType" required="true">
+                <TextBox ngmodel="model.AppPlatformType" required="true"></TextBox>
+            </FormRow>
+            <FormRow colspan="2" Label="AppPlatformId" required="true">
+                <TextBox ngmodel="model.AppPlatformId" required="true"></TextBox>
+            </FormRow>
+            <FormRow colspan="2" Label="Url" required="true">
+                <TextBox ngmodel="model.Url" required="true"></TextBox>
+            </FormRow>
+        </form>
+    </pbody>
+    <pfoot>
+        <ButtonBar></ButtonBar>
+    </pfoot>
+</panel>

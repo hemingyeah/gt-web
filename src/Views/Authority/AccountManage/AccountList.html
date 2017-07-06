@@ -1,0 +1,20 @@
+<Layout>
+	<Item Label="企业帐号" width='sm'>
+		<CompanyAccount id="GroupTree"></CompanyAccount>
+	</Item>
+	<Item Label="详情">
+		<ButtonBar></ButtonBar>
+		<div gtform>
+			<RowTextBox colspan='2' Label="帐号名称" ngmodel="SelectData.AccountName" ngdisabled="true"></RowTextBox>
+			<RowTextBox colspan='2' Label="登录名" ngmodel="SelectData.Account" ngdisabled="true"></RowTextBox>
+			<RowTextBox colspan='2' Label="分配账号数" ngmodel="SelectData.DistributionNum" ngdisabled="true"></RowTextBox>
+			<RowTextBox colspan='2' Label="查看个人账号" ngmodel="SelectData.ViewNum" ngdisabled="true"></RowTextBox>
+			<FormRow colspan='2' Label="所属应用">
+				<DropDown ngdisabled='true' placeholder='请选择...' search='true' Display='{{$select.selected.AppName}}' ngmodel='SelectData.AppId' repeat="option.AppId as option in AppList" filter="AppName">
+	            	<div ng-bind-html="option.AppName | highlight: $select.search"></div>
+	        	</DropDown>
+			</FormRow>
+			<RowTextBox colspan='2' Label="帐号描述" ngmodel="SelectData.AccountDesc" ngdisabled="true"></RowTextBox>
+		</div>
+	</Item>
+</Layout>

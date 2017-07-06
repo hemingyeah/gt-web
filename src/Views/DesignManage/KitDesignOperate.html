@@ -1,0 +1,37 @@
+<Panel Dialog>
+	<phead>表编辑</phead>
+	<pbody>
+		<form gtform name='form'>
+		<FormRow Label="英文名称" Required>
+			<TextBox placeholder="英文名称" ngmodel="model.DisplayName" Required></TextBox>
+		</FormRow>
+		<FormRow Label="中文名称" Required>
+			<TextBox placeholder="中文名称" ngmodel="model.ChineseName" Required></TextBox>
+		</FormRow>
+		<FormRow Label="模型描述" Required>
+			<TextBox placeholder="模型描述" ngmodel="model.Description" Required></TextBox>
+		</FormRow>
+		<FormRow colspan='2' Label="所属插件" >
+			<DropDown ngmodel="model.PluginId" placeholder='请选择所属插件' Display='{{$select.selected.DisplayName}}' repeat="Plugin.Id as Plugin in Plugins" filter="DisplayName">
+				<div ng-bind-html="Plugin.DisplayName | highlight: $select.search"></div>
+			</DropDown>
+		</FormRow>
+		<FormRow colspan='2' Label="所属模型" >
+			<DropDown ngmodel="model.ModelId" placeholder='请选择所属模型' Display='{{$select.selected.CnName}}' repeat="Model.Id as Model in ModelList" filter="CnName">
+				<div ng-bind-html="Model.CnName | highlight: $select.search"></div>
+			</DropDown>
+		</FormRow>
+		<FormRow colspan='2' Label="表格类型" >
+			<DropDown ngmodel="model.DesignType " placeholder='请选择所属模型' Display='{{$select.selected.TableName}}' repeat="Table.TableCode as Table in TableType" filter="TableName">
+				<div ng-bind-html="Table.TableName | highlight: $select.search"></div>
+			</DropDown>
+		</FormRow>
+		<FormRow Label="是否业务" colspan='2'>
+			<Switch ngmodel="model.IsBiz"></Switch>
+		</FormRow>
+		</form>
+	</pbody>
+	<pfoot>
+		<ButtonBar float='right'></ButtonBar>
+	</pfoot>
+</Panel>

@@ -1,0 +1,16 @@
+<Panel gtform Dialog>
+    <phead>群组推送</phead>
+    <pbody style='padding: 5px 0px 5px 5px;' ng-init="model.KeyType=0">
+        <Layout ng-init="app.Layout = true;" style="min-height: 600px;">
+            <Item Label="组织机构" treebar="true" width="sm">
+                <Deptment id="GroupUserTree" check="true" cc="true"></Deptment>
+            </Item>
+            <Item Label="轮播广告">
+                <datagrid agGrid="gridOptions"></datagrid>
+            </Item>
+        </Layout>
+    </pbody>
+    <pfoot>
+        <ButtonBar checkBox="true"></ButtonBar>
+    </pfoot>
+</Panel>

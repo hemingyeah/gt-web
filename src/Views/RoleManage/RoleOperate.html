@@ -1,0 +1,13 @@
+<Panel gtform Dialog>
+	<phead>角色编辑</phead>
+	<pbody>
+		<RowTextBox colspan='2' Label="角色名称" ngmodel="model.Name"></RowTextBox>
+		<RowTextBox colspan='2' Label="描述" ngmodel="model.Description"></RowTextBox>
+		<FormRow colspan='2' Label="是否启用">
+			<Switch ngmodel="model.IsEnabled"></Switch>
+		</FormRow>
+	</pbody>
+	<pfoot>
+		<ButtonBar float='right'></ButtonBar>
+	</pfoot>
+</Panel>

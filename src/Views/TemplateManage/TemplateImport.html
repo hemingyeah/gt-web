@@ -1,0 +1,13 @@
+<Panel gtform Dialog>
+<phead>下载模板</phead>
+   <pbody>
+		<FormRow Label="导入深度">
+			<Number min=1 max=10 ngmodel="Index"></Number>
+		</FormRow>
+		<RowTextBox Label="导入节点名称" ngdisabled="true" ngmodel="Group.GroupName"></RowTextBox>
+		<button class="btn m-b-xs w-xs btn-info" style="float:right;" ng-click="event.SelectGroupNode()">选择节点</button>
+	</pbody>
+<pfoot>
+	<ButtonBar float="right"></ButtonBar>
+</pfoot>
+</Panel>

@@ -1,0 +1,120 @@
+<Panel Dialog>
+    <phead>页面编辑</phead>
+    <pbody>
+        <form name='form' gtform>
+            <FormRow Label="菜单名称" Required>
+                <TextBox ngmodel="model.Name" Required></TextBox>
+            </FormRow>
+            <FormRow Label="菜单编码" Required>
+                <TextBox ngmodel="model.Code" Required></TextBox>
+            </FormRow>
+            <FormRow Label="描述">
+                <TextBox ngmodel="model.Description"></TextBox>
+            </FormRow>
+            <FormRow colspan="2" Label="页面功能">
+                <DropDown multiple ngmodel="model.Operations" placeholder='请选择...' Display='{{$item.Name}}' repeat="option in ButtonList" filter="Name">
+                    <div ng-bind-html="option.Name | highlight: $select.search"></div>
+                </DropDown>
+            </FormRow>
+            <div class="row">
+                <TabPanel>
+                    <Tab Label="Android">
+                        <div class='col-sm-12' style='padding-top:10px;'>
+                            <RowTextBox Label="标识行" colspan='2' ngmodel="model.MenuAndroid.RowId"></RowTextBox>
+                            <RowTextBox Label="类名" colspan='2' ngmodel="model.MenuAndroid.Android_ActivityClass"></RowTextBox>
+                            <RowTextBox Label="所属人" colspan='2' ngmodel="model.MenuAndroid.Android_MenuBeLong"></RowTextBox>
+                            <RowTextBox Label="未读数据" colspan='2' ngmodel="model.MenuAndroid.Android_NoRead"></RowTextBox>
+                            <RowTextBox Label="版本号" colspan='2' ngmodel="model.MenuAndroid.VersionCode"></RowTextBox>
+                            <RowTextBox Label="复用类型" colspan='2' ngmodel="model.MenuAndroid.Plug_Type"></RowTextBox>
+                            <RowTextBox Label="推送辅助类" colspan='2' ngmodel="model.MenuAndroid.Android_Manager"></RowTextBox>
+                            <RowTextBox Label="推送关键字" colspan='2' ngmodel="model.MenuAndroid.Android_PushKey"></RowTextBox>
+                            <RowTextBox Label="推送描述" colspan='2' ngmodel="model.MenuAndroid.Push_Desc"></RowTextBox>
+                            <FormRow Label="系统类型" colspan='2'>
+                                <Switch ngmodel="model.MenuAndroid.IsSystemAppString"></Switch>
+                            </FormRow>
+                            <FormRow Label="检查登陆" colspan='2'>
+                                <Switch ngmodel="model.MenuAndroid.CheckLogin"></Switch>
+                            </FormRow>
+                            <FormRow Label="分组表格" colspan='2'>
+                                <Switch ngmodel="model.MenuAndroid.IsMainMenu"></Switch>
+                            </FormRow>
+                        </div>
+                    </Tab>
+                    <Tab Label="IOS">
+                        <div class='col-sm-12' style='padding-top:10px;'>
+                            <RowTextBox Label="行标识" colspan='2' ngmodel="model.MenuIos.RowId"></RowTextBox>
+                            <RowTextBox Label="所属人" colspan='2' ngmodel="model.MenuIos.Android_MenuBeLong"></RowTextBox>
+                            <RowTextBox Label="推送关键字" colspan='2' ngmodel="model.MenuIos.PushKey"></RowTextBox>
+                            <RowTextBox Label="版本号" colspan='2' ngmodel="model.MenuIos.VersionCode"></RowTextBox>
+                            <RowTextBox Label="网页地址" colspan='2' ngmodel="model.MenuIos.NameURL"></RowTextBox>
+                            <RowTextBox Label="类名" colspan='2' ngmodel="model.MenuIos.Ios_className"></RowTextBox>
+                            <FormRow Label="是否系统" colspan='2'>
+                                <Switch ngmodel="model.MenuIos.IsSystemAppString"></Switch>
+                            </FormRow>
+                            <FormRow Label="是否启用" colspan='2'>
+                                <Switch ngmodel="model.MenuIos.IsUse"></Switch>
+                            </FormRow>
+                            <FormRow Label="是否Init类" colspan='2'>
+                                <Switch ngmodel="model.MenuIos.Ios_isClassInit"></Switch>
+                            </FormRow>
+                            <FormRow Label="检查登陆" colspan='2'>
+                                <Switch ngmodel="model.MenuIos.CheckLogin"></Switch>
+                            </FormRow>
+                            <FormRow Label="推送跳转页面" colspan='2'>
+                                <Switch ngmodel="model.MenuIos.Ios_isPushViewController"></Switch>
+                            </FormRow>
+                            <FormRow Label="未读个数功能" colspan='2'>
+                                <Switch ngmodel="model.MenuIos.Ios_isBadGeviewInit"></Switch>
+                            </FormRow>
+                            <FormRow Label="分组表格" colspan='2'>
+                                <Switch ngmodel="model.MenuIos.Ios_isGroupTable"></Switch>
+                            </FormRow>
+                            <FormRow Label="分组表格" colspan='2'>
+                                <Switch ngmodel="model.MenuIos.IsMainMenu"></Switch>
+                            </FormRow>
+                        </div>
+                    </Tab>
+                    <Tab Label="Web">
+                        <div class='col-sm-12' style='padding-top:10px;'>
+                            <div class="form-group">
+                                <label for="inputPassword3" class="col-sm-2 control-label">打开方式</label>
+                                <div class="col-sm-10">
+                                    <select class="form-control" ng-model="model.MenuWeb.Target">
+                                        <option value="_self">当前窗口(默认)</option>
+                                        <option value="_blank">新窗口</option>
+                                        <option value="_parent">父窗口</option>
+                                        <option value="_top">整个窗口</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="inputPassword3" class="col-sm-2 control-label">连接地址</label>
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control" ng-model="model.MenuWeb.Href">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="inputPassword3" class="col-sm-2 control-label">检查登陆</label>
+                                <div class="col-sm-10">
+                                    <Switch ngmodel="model.MenuWeb.IsCheckLogin"></Switch>
+                                </div>
+                            </div>
+                        </div>
+                    </Tab>
+                    <Tab Label="PC">
+                        <div class='col-sm-12' style='padding-top:10px;'>
+                            <RowTextBox Label="程序集" colspan='2' ngmodel="model.MenuPc.Assembly"></RowTextBox>
+                            <RowTextBox Label="类名" colspan='2' ngmodel="model.MenuPc.ClassName"></RowTextBox>
+                            <FormRow Label="检查登陆" colspan='2'>
+                                <Switch ngmodel="model.MenuPc.IsCheckLogin"></Switch>
+                            </FormRow>
+                        </div>
+                    </Tab>
+                </TabPanel>
+            </div>
+        </form>
+    </pbody>
+    <pfoot>
+        <ButtonBar></ButtonBar>
+    </pfoot>
+</Panel>

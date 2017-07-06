@@ -1,0 +1,13 @@
+<div class="GT-MessageBar container">
+	<div class="row">
+		<div class="col-lg-1 col-md-1 col-sm-1 hidden-xs"><img src="/resources/images/home/msg.png" alt=""></div>
+		<div class="col-lg-9 col-md-8 col-sm-8 col-xs-8" style="overflow:hidden; height:87px;">
+			<div style="top:0;" class="MsgList">
+				<div ng-repeat="row in MsgList">
+					<a href="#/Web/Content/Notice/{{row.Id}}" ng-bind-html="row.Name"></a>
+				</div>
+			</div>
+		</div>
+		<div class="col-lg-2 col-md-3 col-sm-3 col-xs-4" style="text-align:right;"><a href="#/Web/List/Notice">更多通知 > </a></div>
+	</div>
+</div>

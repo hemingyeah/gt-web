@@ -1,0 +1,24 @@
+<Panel gtform Dialog>
+    <phead>{{model.dataState.Name}}字典</phead>
+    <pbody>
+        <form gtform name='form'>
+            <!--<RowTextBox Label="父字典" ngmodel="model.ParentName" ng-if="model.DataState.Value==='Add'" ngdisabled="true" colspan='1'></RowTextBox>-->
+            <RowTextBox Label="名称" ngmodel="model.DisplayName" colspan='2' Required></RowTextBox>
+            <!--<FormRow Label="名称" colspan='1' Required>
+                <TextBox ngmodel="model.DisplayName" Required ng-show='false'></TextBox>
+                <DropDown ngmodel="model.DisplayName" refresh="SearchName($select.search)" Display='{{$item.DisplayName}}' tagging="tagTransform" taggingValue="DisplayName" repeat="option.DisplayName as option in NameList" filter="DisplayName">
+                    <div ng-bind-html="option.DisplayName | highlight: $select.search"></div>
+                </DropDown>
+            </FormRow>-->
+            <RowTextBox Label="编码" ngmodel="model.Code" colspan='2' Required></RowTextBox>
+            <RowTextBox Label="值" ngmodel="model.Value" colspan='2' Required></RowTextBox>
+            <RowTextBox Label="备注" ngmodel="model.Description" colspan='2' Required></RowTextBox>
+            <FormRow colspan="2" Label="父字典" >
+                <SelectTree ngModel="model.ParentId" placeHolder="请选择" checkBox="false" tree="FkTechPlatformId" displayName="model.ParentName" type="dic" cp="false" cc="false" selectMode="true" multiSelect="false" globalSingle="true"></SelectTree>
+            </FormRow>
+        </form>
+    </pbody>
+    <pfoot>
+        <ButtonBar float='right'></ButtonBar>
+    </pfoot>
+</Panel>

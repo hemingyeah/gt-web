@@ -1,0 +1,16 @@
+<Panel gtform Dialog>
+	<phead>服务器编辑</phead>
+	<pbody>
+		<RowTextBox Label="地址" placeholder="地址Url" ngmodel="model.ServerUrl" colspan='2' Required></RowTextBox>
+		<RowTextBox Label="登陆账户" placeholder="账户" ngmodel="model.ServerAccount" colspan='2' Required></RowTextBox>
+		<RowTextBox Label="账户密码" placeholder="密码" type="password" ngmodel="model.ServerPassword" colspan='2' Required></RowTextBox>
+		<FormRow colspan='2' Label="所属插件" >
+			<DropDown ngmodel="model.TypeId" placeholder='请选择所属类别' Display='{{$select.selected.DisplayName}}' repeat="Type.Id as Type in Types" filter="DisplayName">
+				<div ng-bind-html="Type.DisplayName | highlight: $select.search"></div>
+			</DropDown>
+		</FormRow>
+	</pbody>
+	<pfoot>
+		<ButtonBar float='right'></ButtonBar>
+	</pfoot>
+</Panel>

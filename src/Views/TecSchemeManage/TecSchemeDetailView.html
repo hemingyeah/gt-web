@@ -1,0 +1,100 @@
+  <Panel>
+    <phead>技术方案首页详情</phead>
+    <pbody>
+      <table class="table table-bordered GT-TecScheme">
+        <tr>
+          <td class="item" colspan='14'>技术方案首页</td>
+        </tr>
+        <tr>
+          <td class="item" colspan='2'>名称</td>
+          <td colspan='3'>{{model.Name}}</td>
+          <td class="item" colspan='2'>编号</td>
+          <td colspan='7'>{{model.Code}}</td>
+        </tr>
+        <tr>
+          <td class="item" colspan='2'>文档版本</td>
+          <td colspan='3'>{{model.Version}}</td>
+          <td class="item" colspan='2'>编写人</td>
+          <td colspan='3'>{{model.WriterName}}</td>
+          <td class="item" colspan='2'>时间</td>
+          <td colspan='2'>{{model.SubmitDate | date:'yyyy-MM-dd'}}</td>
+        </tr>
+        <tr>
+          <td colspan="14"></td>
+        </tr>
+        <tr>
+          <td class="item" colspan='2'>解决什么问题</td>
+          <td colspan='12'>{{model.Description}}</td>
+        </tr>
+        <tr>
+          <td class="item" rowspan='3'>对标</td>
+          <td class="item">对象</td>
+          <td colspan='12'>{{model.Reference}}</td>
+        </tr>
+        <tr>
+          <td class="item">优点</td>
+          <td colspan='12'>{{model.ReferenceAdvantage}}</td>
+        </tr>
+        <tr>
+          <td class="item">缺点</td>
+          <td colspan='12'>{{model.ReferenceDisadvantage}}</td>
+        </tr>
+        <tr>
+          <td class="item" colspan='2'>功能</td>
+          <td colspan='12'>{{model.Function}}</td>
+        </tr>
+        <tr>
+          <td class="item" colspan='2'>特点</td>
+          <td colspan='12'>{{model.Feature}}</td>
+        </tr>
+      </table>
+      <!-- 下载附件列表 -->
+      <Panel>
+        <phead>下载附件</phead>
+        <pbody>
+          <table class="table bg-white-only b-a" style="margin-top: 10px;">
+              <thead>
+                  <tr>
+                      <th width="40%" >文件名</th>
+                      <th>大小</th>
+                      <!-- <th ng-show="uploader.isHTML5" width="30%">进度</th> -->
+                      <th>状态</th>
+                      <th>操作</th>
+                  </tr>
+              </thead>
+              <tbody>
+                  <tr ng-repeat="item in CompanyAttach">
+                      <td><strong>{{ item.FileName }}</strong></td>
+                      <td>{{ item.Size/1024/1024|number:2 }} MB</td>
+                      <!-- <td ng-show="uploader.isHTML5">
+                          <div class="progress progress-sm m-b-none m-t-xs">
+                              <div class="progress-bar bg-info" role="progressbar" ng-style="{ 'width': item.progress + '%' }"></div>
+                          </div>
+                      </td> -->
+                      <td>
+                          <span ng-show="item.state" class="text-success">已上传</span>
+                          <span ng-show="!item.state" class="text-warning">未上传</span>
+                      </td>
+                      <td nowrap>
+                          <button type="button" class="btn btn-default btn-sm" ng-click="event.DownLoad(item)">
+                              下载
+                          </button>
+                      </td>
+                  </tr>
+              </tbody>
+          </table>
+        </pbody>
+      </Panel>
+      <Panel>
+        <phead>技术委员会意见</phead>
+        <pbody>{{model.TechOption}}</pbody>
+      </Panel>
+      <Panel>
+        <phead>公司意见</phead>
+        <pbody>{{model.CompanyOption}}</pbody>
+      </Panel>
+    </pbody>
+    <pfoot>
+      <ButtonBar float="right"></ButtonBar>
+    </pfoot>
+  </Panel>

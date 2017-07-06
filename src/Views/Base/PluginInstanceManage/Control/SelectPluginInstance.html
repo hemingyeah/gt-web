@@ -1,0 +1,27 @@
+	<Panel Label="选择功能权限">
+		<ButtonBar></ButtonBar>
+		<div class="row" style="height:600px; overflow:auto;">
+			<div ng-repeat="i in PluginInstanceList">
+				<div style="font-size:30px;">
+					<!-- <CheckBox ng-model="i.Checked"></CheckBox> -->
+					<input type="checkbox" ng-model="i.Checked">
+					<span ng-bind="i.Name" style="color:red;" ng-click="i.Checked=!i.Checked"></span>
+				</div>
+				<div ng-repeat="j in i.MenuInstances" style="margin: 5px 10px; display:table;">
+					<div>
+						<!-- <CheckBox ng-model="j.Checked"></CheckBox> -->
+						<input type="checkbox" ng-model="j.Checked">
+						<span ng-bind="j.Name" ng-click="j.Checked=!j.Checked"></span>
+					</div>
+
+					<div ng-repeat="k in j.OperationInstances" class="GT-Item-List" style="margin: 5px 10px;">
+						<div class="GT-Item">
+							<!-- <CheckBox ng-model="k.Checked"></CheckBox> -->
+							<input type="checkbox" ng-model="k.Checked">
+							<span ng-bind="k.Name" ng-click="k.Checked=!k.Checked"></span>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</Panel>

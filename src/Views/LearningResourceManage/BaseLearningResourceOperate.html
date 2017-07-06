@@ -1,0 +1,76 @@
+<!-- <panel Dialog>
+    <phead> <span ng-if='model.Id'>编辑[资源名称]</span> <span ng-if='!model.Id'>新增[资源名称]</span></phead>
+    <pbody>
+        <form gtform name='form'>
+            <FormRow colspan="2" Label="资源名称" required="true">
+                <TextBox ngmodel="model.Name" required="true"></TextBox>
+            </FormRow>
+            <FormRow colspan="2" Label="学段" required="true">
+                <DropDownTreeList ngmodel="model.LearningStageTypeId" ParentId="00d0578f-d1d8-ce9a-90b3-08d305eda52f" DisplayModel="model.LearningStageTypeName" required="true"></DropDownTreeList>
+            </FormRow>
+            <FormRow colspan="2" Label="学科" required="true">
+                <DropDownTreeList ngmodel="model.SubjectTypeId" ParentId="0ce5df0f-3f2d-c483-113c-08d305ed6452" DisplayModel="model.SubjectTypeName" required="true"></DropDownTreeList>
+            </FormRow>
+            <FormRow colspan="2" Label="资源类型" required="true">
+                <DropDownTreeList ngmodel="model.ResourceTypeId" ParentId="0323f5f3-99a7-c1f1-2806-08d305efe44c" DisplayModel="model.ResourceTypeName" required="true"></DropDownTreeList>
+            </FormRow>
+            <FormRow colspan="2" Label="是否公开" required="true">
+                <Switch value="是否公开" ngmodel="model.IsPublic" required="true"></Switch>
+            </FormRow>
+        </form>
+    </pbody>
+    <pfoot>
+        <ButtonBar></ButtonBar>
+    </pfoot>
+</panel>
+ -->
+<!-- <panel Dialog>
+    <phead> <span ng-if='model.Id'>编辑[资源名称]</span> <span ng-if='!model.Id'>新增[资源名称]</span></phead>
+    <pbody>
+        <form gtform name='form'>
+            <FormRow colspan="2" Label="资源名称" required="true">
+                <TextBox ngmodel="model.Name" required="true"></TextBox>
+            </FormRow>
+            <FormRow colspan="2" Label="学段" required="true">
+                <DropDownTreeList configtree="event.ConfigTree()" ngmodel="model.LearningStageTypeId" ParentId="00d0578f-d1d8-ce9a-90b3-08d305eda52f" DisplayModel="model.LearningStageTypeName" required="true"></DropDownTreeList>
+            </FormRow>
+            <FormRow colspan="2" Label="学科" required="true">
+                <DropDownTreeList configtree="event.ConfigTree()" ngmodel="model.SubjectTypeId" ParentId="0ce5df0f-3f2d-c483-113c-08d305ed6452" DisplayModel="model.SubjectTypeName" required="true"></DropDownTreeList>
+            </FormRow>
+            <FormRow colspan="2" Label="资源类型" required="true">
+                <DropDownTreeList configtree="event.ConfigTree()" ngmodel="model.ResourceTypeId" ParentId="0323f5f3-99a7-c1f1-2806-08d305efe44c" DisplayModel="model.ResourceTypeName" required="true"></DropDownTreeList>
+            </FormRow>
+            <FormRow colspan="2" Label="是否公开" required="true">
+                <Switch value="是否公开" ngmodel="model.IsPublic" required="true"></Switch>
+            </FormRow>
+        </form>
+    </pbody>
+    <pfoot>
+        <ButtonBar></ButtonBar>
+    </pfoot>
+</panel> -->
+<panel Dialog>
+    <phead> <span ng-if='model.Id'>编辑[资源名称]</span> <span ng-if='!model.Id'>新增[资源名称]</span></phead>
+    <pbody>
+        <form gtform name='form'>
+            <FormRow colspan="2" Label="资源名称" required="true">
+                <TextBox ngmodel="model.Name" required="true"></TextBox>
+            </FormRow>
+            <FormRow colspan="2" Label="学段" required="true">
+                <DropDownTreeList model="model" configtree="event.ConfigTree()" ngmodel="model.LearningStageTypeId" ParentId="aff0336a-4220-c6df-210a-08d30b813ef6" DisplayModel="model.LearningStageTypeName" required="true"></DropDownTreeList>
+            </FormRow>
+            <FormRow colspan="2" Label="学科" required="true">
+                <DropDownTreeList model="model" configtree="event.ConfigTree()" ngmodel="model.SubjectTypeId" ParentId="aadca007-eb68-c2fc-210a-08d30b813ef6" DisplayModel="model.SubjectTypeName" required="true"></DropDownTreeList>
+            </FormRow>
+            <FormRow colspan="2" Label="资源类型" required="true">
+                <DropDownTreeList model="model" configtree="event.ConfigTree()" ngmodel="model.ResourceTypeId" ParentId="7a64e5e9-64e1-c87d-9db8-08d30b846cd3" DisplayModel="model.ResourceTypeName" required="true"></DropDownTreeList>
+            </FormRow>
+            <FormRow colspan="2" Label="是否公开" required="true">
+                <Switch value="是否公开" ngmodel="model.IsPublic" required="true"></Switch>
+            </FormRow>
+        </form>
+    </pbody>
+    <pfoot>
+        <ButtonBar></ButtonBar>
+    </pfoot>
+</panel>

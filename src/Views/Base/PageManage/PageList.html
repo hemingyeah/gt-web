@@ -1,0 +1,11 @@
+<Layout>
+	<Item Label="页面管理">
+		<div gtform>
+			<div style="float:left;"><TextBox ngmodel='Search' style='margin:5px 0;' placeholder="筛选：菜单名称"></TextBox>
+			</div>
+			<ButtonBar></ButtonBar>
+		</div>
+		<GTGrid ItemCode="row" ColumnCode="PageManage" PageChange="event.LoadData()" ListCode="data" PageData='Page' select index edit>
+		</GTGrid>
+	</Item>
+</Layout>

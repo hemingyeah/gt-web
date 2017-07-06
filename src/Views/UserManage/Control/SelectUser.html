@@ -1,0 +1,19 @@
+<Panel Dialog>
+    <phead>选择人员</phead>
+    <pbody style='padding:0;'>
+        <Layout style="height: 700px;">
+            <Item Label="组织机构" width="sm">
+                <Deptment id="GroupUserSelect"></Deptment>
+            </Item>
+            <Item Label="所属人员">
+                <datagrid agGrid="gridOptions" mode="select" rowbtn="false" showToolPanel="false"></datagrid>
+            </Item>
+        </Layout>
+    </pbody>
+    <pfoot>
+        <div class="row">
+            <div class="col-md-3 h4" style="padding: 10px;">已选择[<a>{{gridOptions.selectData.length}}</a>]条数据</div>
+            <div class="col-md-9"><ButtonBar></ButtonBar></div>
+        </div>
+    </pfoot>
+</Panel>

@@ -1,0 +1,27 @@
+	<div style="box-sizing:border-box; text-align:right;">
+		<button class="btn m-b-xs w-xs btn-info" ng-click="event.AddRoot();" ng-if="event.AddRoot">{{eventName.AddRoot||"添加根节点"}}</button>
+		<button class="btn m-b-xs w-xs btn-info" ng-click="event.AddChild();" ng-if="event.AddChild">{{eventName.AddChild||"添加子节点"}}</button>
+		<button class="btn m-b-xs w-xs btn-info" ng-click="event.Select();" ng-if="event.Select">{{eventName.Select||"选择"}}</button>
+		<button class="btn m-b-xs w-xs btn-info" ng-click="event.Search();" ng-if="event.Search">{{eventName.Search||"查询"}}</button>
+		<button class="btn m-b-xs w-xs btn-info" ng-click="event.Add();" ng-if="event.Add">{{eventName.Add||"添加"}}</button>
+		<button class="btn m-b-xs w-xs btn-info" ng-click="event.Custom();" ng-if="event.Custom">{{eventName.Custom||"自建"}}</button>
+		<button class="btn m-b-xs w-xs btn-info" ng-click="event.EditInfo();" ng-if="event.EditInfo">{{eventName.EditInfo||"修改"}}</button>
+
+		<button class="btn m-b-xs w-xs btn-info" ng-click="event.SetPower();" ng-if="event.SetPower">{{eventName.SetPower||"功能权限"}}</button>
+		<button class="btn m-b-xs w-xs btn-info" ng-click="event.Deptment();" ng-if="event.Deptment">{{eventName.Deptment||"节点权限"}}</button>
+		<button class="btn m-b-xs w-xs btn-info" ng-click="event.PluginTag();" ng-if="event.PluginTag">{{eventName.PluginTag||"插件标签"}}</button>
+		<button class="btn m-b-xs w-xs btn-info" ng-click="event.PersonTag();" ng-if="event.PersonTag">{{eventName.PersonTag||"人组标签"}}</button>
+
+		<button class="btn m-b-xs w-xs btn-info" ng-click="event.DeleteSelect();" ng-if="event.DeleteSelect">{{eventName.DeleteSelect||"删除"}}</button>
+		<button class="btn m-b-xs w-xs btn-info" ng-click="event.Batch();" ng-if="event.Batch">{{eventName.Batch||"批量"}}</button>
+
+		<button type="submit" class="btn m-b-xs w-xs btn-primary" ng-click="event.Save();" ng-if="event.Save" ng-disabled='form.$invalid'>{{eventName.Save||"保存"}}</button>
+		<button class="btn m-b-xs w-xs btn-info" ng-click="event.OK();" ng-if="event.OK">{{eventName.OK||"确定"}}</button>
+		<button class="btn m-b-xs w-xs btn-default" ng-click="event.Close();" ng-if="event.Close">{{eventName.Close||"关闭"}}</button>
+
+		<button class="btn m-b-xs w-xs btn-info" ng-click="event.Bind();" ng-if="event.Bind">{{eventName.Bind||"绑定"}}</button>
+		<button class="btn m-b-xs w-xs btn-default" ng-click="event.unBind();" ng-if="event.unBind">{{eventName.unBind||"解绑"}}</button>
+
+		<button class="btn m-b-xs w-xs btn-info" ng-click="event.Input();" ng-if="event.Input">{{eventName.Input||"导入"}}</button>
+		<button class="btn m-b-xs w-xs btn-info" ng-click="event.Print();" ng-if="event.Print">{{eventName.Print||"打印"}}</button>
+	</div>

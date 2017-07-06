@@ -1,0 +1,34 @@
+<!-- <Layout>
+    <Item width="sm" Label="已选人员">
+        <GTList ListCode="SelectedUsers" ItemCode="row">
+            <div href class="list-group-item">
+                <div ng-bind="row.GroupUserName" style="text-overflow:ellipsis; padding-right:35px; overflow:hidden;"></div>
+                <div class="ItemButton">
+                    <i class="Btn btn-delete" ng-click="event.DeleteSelectedUser($index)"></i>
+                </div>
+            </div>
+        </GTList>
+    </Item>
+    <Item Label="通知">
+        <ButtonBar></ButtonBar>
+        <GTGrid ItemCode="row" ColumnCode="BaseNotice" ListCode="data" PageChange="event.LoadData()" PageData='Page' select index>
+        </GTGrid>
+    </Item>
+</Layout> -->
+
+<Panel gtform Dialog>
+    <phead>群组推送</phead>
+    <pbody style='padding: 5px 0px 5px 5px;' ng-init="model.KeyType=0">
+        <Layout ng-init="app.Layout = true;" style="min-height: 600px;">
+            <Item Label="组织机构" treebar="true" width="md" event="gridOptionsUser.event">
+                <selectuser></selectuser>
+            </Item>
+            <Item Label="通知">
+                <datagrid agGrid="gridOptions"></datagrid>
+            </Item>
+        </Layout>
+    </pbody>
+    <pfoot>
+        <ButtonBar checkBox="true"></ButtonBar>
+    </pfoot>
+</Panel>

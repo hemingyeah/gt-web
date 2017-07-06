@@ -1,0 +1,19 @@
+<Panel gtform Dialog>
+	<phead>索引编辑</phead>
+	<pbody>
+		<RowTextBox Label="名称" placeholder="名称" ngmodel="model.Name" colspan='2' Required></RowTextBox>
+		<RowTextBox Label="描述" placeholder="描述" ngmodel="model.Description" colspan='2' Required></RowTextBox>
+		<FormRow colspan='2' Label="是否聚集">
+			<Switch ngmodel="model.IsCluster" ></Switch>
+		</FormRow>
+		<FormRow colspan='2' Label="是否唯一">
+			<Switch ngmodel="model.IsUnique" ></Switch>
+		</FormRow>
+		<FormRow colspan='2' Label='请选择索引列' >
+			<GTGrid ItemCode="row" ColumnCode="SelectDisplayAttributes" ListCode="Design.DesignCustomAttributes" select index></GTGrid>
+		</FormRow>
+	</pbody>
+	<pfoot>
+		<ButtonBar float='right'></ButtonBar>
+	</pfoot>
+</Panel>

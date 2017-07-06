@@ -1,0 +1,14 @@
+ <Layout ng-init="app.Layout = true;" style="min-height:700px;">
+     <Item Label="服务器类型" width="sm">
+         <Search ngmodel='search' placeholder='Search'></Search>
+         <GTList ListCode="Types | filter:search:{'DisplayName':search}" ItemCode="row">
+             <a href class="list-group-item" ng-bind="row.DisplayName" title='{{row.DisplayName}}' ng-class="{active:Sel_Type== row}" ng-click="event.LoadData(row);"></a>
+         </GTList>
+     </Item>
+     <Item Label="相关服务器">
+         <ButtonBar></ButtonBar>
+         <div ng-repeat="Type in Types" ng-if="Sel_Type === Type">
+             <GtGrid ColumnCode="ServerManage" ListCode="Type.Servers" ItemCode="row" edit index></GtGrid>
+         </div>
+     </Item>
+ </Layout>

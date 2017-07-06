@@ -1,0 +1,132 @@
+<Panel Dialog>
+    <phead>生成报表</phead>
+    <pbody style='padding:0px;'>
+        <tabset class="tab-container" ng-init="steps={step1:true}">
+            <tab heading="1、选择表" disabled="true" active="steps.step1">
+                <form name="form1" gtform>
+                    <div class="panel-height">
+                        <datagrid agGrid="gridTableOptions"></datagrid>
+                    </div>
+                </form>
+            </tab>
+            <tab heading="2、选择字段" disabled="true" active="steps.step2">
+                <div class="panel-height">
+                    <datagrid agGrid="gridColumnOptions"></datagrid>
+                </div>
+            </tab>
+            <tab heading="3、配置数据模型" disabled="true" active="steps.step3">
+                <div class="row margin0 padding0">
+                    <div class="col-md-7 padding5 panel-height">
+                        <panel>
+                            <phead>选择的列</phead>
+                            <pbody style="padding: 5px;">
+                                <div ng-repeat="item in currentColumns" class="row" ng-click="selectChange(item)" style="border: 1px solid #eee; padding: 10px 5px; margin: 5px 0px; cursor: pointer">
+                                    <div>{{item.DisplayName}}【{{item.ChineseName}}】<span style="float: right;" class="glyphicon glyphicon glyphicon-chevron-right" aria-hidden="true"></span></div>
+                                </div>
+                            </pbody>
+                        </panel>
+                    </div>
+                    <div ng-show="currentConfig" class="col-md-5 padding5 panel-height">
+                        <panel>
+                            <phead>{{currentConfig.DisplayName}}【{{currentConfig.ChineseName}}】</phead>
+                            <pbody style="padding: 5px;">
+                                <div>
+                                    <CheckBox ngDisabled="currentConfig.AttributeType === 1 && currentConfig.IsCol === false" ngmodel="currentConfig.IsVeidoo" label="是否维度"></CheckBox>
+                                </div>
+                                <div ng-show="currentConfig.IsVeidoo">
+                                    <TextBox ngModel="currentConfig.TypeValueName" placeHolder="parentId"></TextBox>
+                                </div>
+                                <div>
+                                    <CheckBox ngmodel="currentConfig.IsTurnToPage" label="是否跳转"></CheckBox>
+                                </div>
+                                <div ng-show="currentConfig.IsTurnToPage">
+                                    <TextBox ngModel="currentConfig.TurnToPageDescription" placeHolder="跳转说明"></TextBox>
+                                </div>
+                                <div>
+                                    <CheckBox ngmodel="currentConfig.ListViewEnable" label="是否列表显示"></CheckBox>
+                                </div>
+                                <div>
+                                    <CheckBox ngmodel="currentConfig.FormViewEnable" label="是否表单显示"></CheckBox>
+                                </div>
+                            </pbody>
+                        </panel>
+
+                    </div>
+                </div>
+            </tab>
+            <tab heading="4、配置表单页面" disabled="true" active="steps.step4">
+                <div class="row" style="line-height: 30px;margin: 5px;">
+                    <div class="col-md-2">
+                        生成的文件名称：
+                    </div>
+                    <div class="col-md-10">
+                        <TextBox ngmodel="FileName" maxLength="30" required placeholder='请输入要生成的文件名称'></TextBox>
+                    </div>
+                </div>
+                <div class="row margin0 padding0">
+
+                    <div class="col-md-7 padding5 ">
+                        <panel>
+                            <phead>选择的列</phead>
+                            <pbody style="padding: 5px; height: 500px; overflow: auto;">
+                                <div ng-repeat="item in currentColumns | filter:{FormViewEnable:true}" class="row" ng-click="selectChange(item)" style="border: 1px solid #eee; padding: 10px 5px; margin: 5px 0px; cursor: pointer">
+                                    <div>{{item.DisplayName}}【{{item.ChineseName}}】<span style="float: right;" class="glyphicon glyphicon glyphicon-chevron-right" aria-hidden="true"></span></div>
+                                </div>
+                            </pbody>
+                        </panel>
+                    </div>
+                    <div class="col-md-5 padding5">
+                        <panel>
+                            <phead>{{currentConfig.DisplayName}}【{{currentConfig.ChineseName}}】</phead>
+                            <pbody style="padding: 5px; height: 500px; overflow: auto;">
+                                <form name="form3" gtform>
+                                    <div class="row" ng-repeat="item in currentConfig.Attributes | filter:{DataState:0}" style="border: 1px solid #eee; padding: 3px 5px; margin: 5px 0px; border-collapse: collapse;">
+                                        <div class="col-md-5" style="cursor: pointer; line-height: 34px" title="{{item.Description}}"><span ng-if="item.IsDefine!==true">{{item.Code}}</span><span ng-if="item.IsDefine===true" title="请输入angular指令ng-开头"><TextBox ngmodel="item.Code" maxLength="100" placeholder='ng指令'></TextBox><span ng-click="item.Delete(item)" style="float: left; margin-left: -20px; margin-top: -25px;" class="glyphicon glyphicon glyphicon-trash" aria-hidden="true"></span></span></div>
+                                        <div class="col-md-7 padding0">
+                                            <div ng-if="item.DataType==='string'">
+                                                <TextBox ngmodel="item.Value" maxLength="100"></TextBox>
+                                            </div>
+                                            <div ng-if="item.DataType==='int'">
+                                                <Number ngmodel="item.Value" rangeMax="65536" rangeMin="0"></Number>
+                                            </div>
+                                            <div ng-if="item.DataType==='enum'">
+                                                <DropDownList placeholder='请选择...' search='true' Display='{{$select.selected.Code}}' ngdisabled="currentConfig.AttributeType===1||currentConfig.TypeValueName.toLocaleLowerCase()==='datetime'" onselect="item.Select($select.selected)" ngmodel='item.Value' repeat="option.Value as option in item.EnumValue" filter="Code">
+                                                    <div ng-bind-html="option.Code | highlight: $select.search"></div>
+                                                </DropDownList>
+                                            </div>
+                                            <div ng-if="item.DataType==='bool'">
+                                                <Switch ngmodel="item.Value"></Switch>
+                                            </div>
+                                            <div ng-if="item.DataType==='guid'">
+                                                <span>{{item.Value}}</span>
+                                            </div>
+                                            <div ng-if="item.DataType==='dateTime'">
+                                                <span><DateTimePicker ngModel="item.Value"></DateTimePicker></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div ng-show="currentConfig===item" ng-repeat="item in currentColumns | filter:{IsVeidoo: true,AttributeType : 1}" style="border: 1px solid #eee; margin: 5px 0px; padding: 10px 5px; cursor: pointer" ng-click="select(item)">
+                                        <div ng-show="currentConfig===item" style="padding: 3px 0px;">
+                                            <selecttree ngmodel="item.Attribute" Required type="dic" multiselect="true" tree="{{item.DisplayName}}" parent="{{item.TypeValueName}}"></selecttree>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <button type="button" class="btn btn-primary btn-lg btn-block" ng-click="definePorperty()">自定义属性</button>
+                                    </div>
+                                </form>
+                            </pbody>
+                        </panel>
+
+                    </div>
+                </div>
+            </tab>
+        </tabset>
+    </pbody>
+    <pfoot>
+        <ButtonBar event='event_1' ng-show='steps.step1' valid="form1"></ButtonBar>
+        <ButtonBar event='event_2' ng-show='steps.step2'></ButtonBar>
+        <ButtonBar event='event_3' ng-show='steps.step3' valid='form3'></ButtonBar>
+        <ButtonBar event='event_4' ng-show='steps.step4' valid='form4'></ButtonBar>
+
+    </pfoot>
+</Panel>

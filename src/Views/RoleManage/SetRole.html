@@ -1,0 +1,15 @@
+<Panel Dialog>
+	<phead>角色分配</phead>
+	<pbody>
+		<div gtform>
+			<FormRow Label="选择角色">
+				<DropDown multiple ngmodel="model.Roles" placeholder='请选择...' Display='{{$item.Name}}' repeat="option in RoleList" filter="Name">
+	            	<div ng-bind-html="option.Name | highlight: $select.search"></div>
+	        	</DropDown>
+			</FormRow>
+		</div>
+	</pbody>
+	<pfoot>
+		<ButtonBar></ButtonBar>
+	</pfoot>
+</Panel>

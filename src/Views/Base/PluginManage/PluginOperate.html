@@ -1,0 +1,18 @@
+<Panel Dialog>
+	<phead>插件管理</phead>
+	<pbody>
+		<form name='form' gtform>
+		<RowTextBox colspan='2' Label="插件名称" ngmodel="model.Name" Required></RowTextBox>
+		<RowTextBox colspan='2' Label="插件编码" ngmodel="model.Code" Required></RowTextBox>
+		<RowTextBox colspan='2' Label="描述" ngmodel="model.Description"></RowTextBox>
+		<FormRow colspan='2' Label="关联页面">
+			<DropDown multiple ngmodel="model.Menus" placeholder='请选择...' Display='{{$item.Name}}' repeat="option in MenuList" filter="Name">
+            	<div ng-bind-html="option.Name | highlight: $select.search"></div>
+        	</DropDown>
+		</FormRow>
+		</form>
+	</pbody>
+	<pfoot>
+		<ButtonBar float="right"></ButtonBar>
+	</pfoot>
+</Panel>

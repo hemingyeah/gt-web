@@ -1,0 +1,41 @@
+ <Layout ng-init="app.Layout = true;" style="min-height:700px;">
+     <Item Label="插件列表" width="sm">
+         <GTList ListCode="Plugins" ItemCode="row">
+             <a href class="list-group-item" ng-bind="row.DisplayName" ng-class="{active:Sel_Plugin== row}" ng-click="event.LoadData(row);"></a>
+         </GTList>
+     </Item>
+     <Item Label="服务器列表" width="sm">
+         <div ng-repeat="Plugin in Plugins" ng-if="Sel_Plugin === Plugin">
+             <div ng-repeat="Type in Plugin.ServerTypes">
+                 <Panel>
+                     <phead>{{Type.DisplayName}}</phead>
+                     <pbody>
+                         <GTList ListCode="Type.Servers" ItemCode="row">
+                             <div href class="list-group-item" ng-class="{active:Sel_Server== row}" ng-click="event.GetRelativeLogs(row);">{{row.DisplayName}}</div>
+                         </GTList>
+                     </pbody>
+                 </Panel>
+             </div>
+         </div>
+     </Item>
+     <Item Label="相关日志">
+         <div ng-repeat="Plugin in Plugins" ng-show="Sel_Plugin === Plugin">
+             <div ng-repeat="Type in Plugin.ServerTypes">
+                 <div ng-repeat="Server in Type.Servers" ng-show="Sel_Server === Server">
+                     <Panel Expand>
+                         <phead>HistoryLog</phead>
+                         <pbody style="padding: 0;">
+                             <GTGrid ItemCode="row" ColumnCode="Logs" ListCode="Sel_Server.LogList.LogList" edit index></GTGrid>
+                         </pbody>
+                     </Panel>
+                     <Panel>
+                         <phead>CurrentLog</phead>
+                         <pbody style="padding: 5px ; overflow:auto;">
+                             <div ng-repeat='item in Sel_Server.LogList.MessageList track by $index' ng-bind='item'></div>
+                         </pbody>
+                     </Panel>
+                 </div>
+             </div>
+         </div>
+     </Item>
+ </Layout>

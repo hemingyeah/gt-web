@@ -1,0 +1,409 @@
+<ul class="nav gtnav">
+    <li class="hidden-folded padder m-t m-b-sm text-muted text-xs">
+        <span translate="Base.Head"></span>
+    </li>
+    <!-- 菜单归类 -->
+    <li>
+        <a href class="auto">
+            <span class="pull-right text-muted">
+                <i class="fa fa-fw fa-angle-right text"></i>
+                <i class="fa fa-fw fa-angle-down text-active"></i>
+            </span>
+            <i class="icon-gt-account"></i>
+            <span translate="Base.Accounts.Name">账号权限管理</span>
+        </a>
+        <ul class="nav nav-sub dk">
+            <li ui-sref-active="active">
+                <a ui-sref="GT.GitManage.List">
+                    <span>Git管理</span>
+                </a>
+            </li>
+
+            <li ui-sref-active="active">
+                <a ui-sref="GT.GroupUser.Manage">
+                    <span translate="Base.GroupUser.GroupUserManage">人组管理</span>
+                </a>
+            </li>
+            <li ui-sref-active="active">
+                <a ui-sref="GT.Account.List">
+                    <span>企业帐号管理</span>
+                </a>
+            </li>
+            <li ui-sref-active="active">
+                <a ui-sref="GT.PersonalAccount.List">
+                    <span>个人帐号管理</span>
+                </a>
+            </li>
+            <li ui-sref-active="active">
+                <a ui-sref="GT.Role.PersonList">
+                    <span>个人账号角色管理</span>
+                </a>
+            </li>
+            <li ui-sref-active="active">
+                <a ui-sref="GT.Role.EnterPriseList">
+                    <span>企业账号角色管理</span>
+                </a>
+            </li>
+            <li ui-sref-active="active">
+                <a ui-sref="GT.Tag.List">
+                    <span>人组标签管理</span>
+                </a>
+            </li>
+        </ul>
+    </li>
+    <li>
+        <a href class="auto">
+            <span class="pull-right text-muted">
+                <i class="fa fa-fw fa-angle-right text"></i>
+                <i class="fa fa-fw fa-angle-down text-active"></i>
+            </span>
+            <i class="icon-gt-baseData"></i>
+            <span translate="Base.BaseData.Name">基础数据</span>
+        </a>
+        <ul class="nav nav-sub dk">
+            <li ui-sref-active="active">
+                <a ui-sref="GT.DataDictionary.DataDictionaryManage">
+                    <span translate="Base.DataDictionary.DataDictionaryManage">总字典管理</span>
+                </a>
+            </li>
+            <li ui-sref-active="active">
+                <a ui-sref="GT.Group.Manage">
+                    <span>群组管理</span>
+                </a>
+            </li>
+            <li ui-sref-active="active">
+                <a ui-sref="GT.GroupUser.Manage({menuId:'b2004eae-56f2-ca42-188b-08d30b81ea97'})">
+                    <span>人员管理</span>
+                </a>
+            </li>
+        </ul>
+    </li>
+    <li>
+        <a href class="auto">
+            <span class="pull-right text-muted">
+                <i class="fa fa-fw fa-angle-right text"></i>
+                <i class="fa fa-fw fa-angle-down text-active"></i>
+            </span>
+            <i class="icon-gt-baseService"></i>
+            <span translate="Base.BaseServer.Name">基础服务</span>
+        </a>
+        <ul class="nav nav-sub dk">
+            <li ui-sref-active="active">
+                <a ui-sref="GT.Log.List">
+                    <span>日志服务</span>
+                </a>
+            </li>
+            <li ui-sref-active="active">
+                <a ui-sref="GT.Server.List">
+                    <span>服务器管理</span>
+                </a>
+            </li>
+            <li ui-sref-active="active">
+                <a ui-sref="GT.Import.Manage">
+                    <span translate="Base.GroupUser.ImportManage">导入历史</span>
+                </a>
+            </li>
+        </ul>
+    </li>
+    <li>
+        <a href class="auto">
+            <span class="pull-right text-muted">
+                <i class="fa fa-fw fa-angle-right text"></i>
+                <i class="fa fa-fw fa-angle-down text-active"></i>
+            </span>
+            <i class="icon-gt-develop"></i>
+            <span translate="Base.DevelopManage.Name">开发管理</span>
+        </a>
+        <ul class="nav nav-sub dk">
+            <li ui-sref-active="active">
+                <a ui-sref="GT.DataBase.List">
+                    <span >Web配置服务</span>
+                </a>
+            </li>
+            <li ui-sref-active="active">
+                <a ui-sref="GT.Report.Manage">
+                    <span>报表配置</span>
+                </a>
+            </li>
+            <li ui-sref-active="active">
+                <a ui-sref="GT.TecScheme.List">
+                    <span translate="Base.DevelopManage.TecSchemeManage">技术方案管理</span>
+                </a>
+            </li>
+            <li ui-sref-active="active">
+                <a ui-sref="GT.Design.List">
+                    <span>模型管理</span>
+                </a>
+            </li>
+            <li ui-sref-active="active">
+                <a ui-sref="GT.Template.List">
+                    <span>模板管理</span>
+                </a>
+            </li>
+        </ul>
+    </li>
+    <li>
+        <a href class="auto">
+            <span class="pull-right text-muted">
+                <i class="fa fa-fw fa-angle-right text"></i>
+                <i class="fa fa-fw fa-angle-down text-active"></i>
+            </span>
+            <i class="icon-gt-func"></i>
+            <span translate="Base.FunctionManage.Name">功能管理</span>
+        </a>
+        <ul class="nav nav-sub dk">
+            <li ui-sref-active="active">
+                <a ui-sref="GT.Operation.List">
+                    <span>操作管理</span>
+                </a>
+            </li>
+            <li ui-sref-active="active">
+                <a ui-sref="GT.Page.List">
+                    <span>页面管理</span>
+                </a>
+            </li>
+            <li ui-sref-active="active">
+                <a ui-sref="GT.Plugin.List">
+                    <span>插件管理</span>
+                </a>
+            </li>
+            <li ui-sref-active="active">
+                <a ui-sref="GT.PluginInstance.List">
+                    <span>实例管理</span>
+                </a>
+            </li>
+            <li ui-sref-active="active">
+                <a ui-sref="GT.App.List">
+                    <span>APP管理</span>
+                </a>
+            </li>
+        </ul>
+    </li>
+    <li>
+        <a href class="auto">
+            <span class="pull-right text-muted">
+                <i class="fa fa-fw fa-angle-right text"></i>
+                <i class="fa fa-fw fa-angle-down text-active"></i>
+            </span>
+            <i class="icon-gt-notices"></i>
+            <span translate="Base.NoticeNew.Name">新通知管理</span>
+        </a>
+        <ul class="nav nav-sub dk">
+            <li ui-sref-active="active">
+                <a ui-sref="GT.NoticeNew.List">
+                    <span translate="Base.NoticeNew.NoticeNewManage">新通知</span>
+                </a>
+            </li>
+            <li ui-sref-active="active">
+                <a ui-sref="GT.NoticeNewTemplate.List">
+                    <span translate="Base.NoticeNew.NoticeNewTemplateManage">新通知模板</span>
+                </a>
+            </li>
+            <li ui-sref-active="active">
+                <a ui-sref="GT.NoticeNewrelease.List">
+                    <span translate="Base.NoticeNew.NoticeNewReleaseManage">新通知发布</span>
+                </a>
+            </li>
+        </ul>
+    </li>
+    <li>
+        <a href class="auto">
+            <span class="pull-right text-muted">
+                <i class="fa fa-fw fa-angle-right text"></i>
+                <i class="fa fa-fw fa-angle-down text-active"></i>
+            </span>
+            <i class="icon-gt-notices"></i>
+            <span translate="Base.Advertisement.Name">轮播广告管理</span>
+        </a>
+        <ul class="nav nav-sub dk">
+            <li ui-sref-active="active">
+                <a ui-sref="GT.Advertisement.List">
+                    <span translate="Base.Advertisement.AdvertisementManage">轮播广告</span>
+                </a>
+            </li>
+            <li ui-sref-active="active">
+                <a ui-sref="GT.Advertisementrelease.List">
+                    <span translate="Base.Advertisement.AdvertisementReleaseManage">新通知发布</span>
+                </a>
+            </li>
+        </ul>
+    </li>
+    <li ng-class="{active:$state.includes('GT.Notice')}">
+        <a href class="auto">
+            <span class="pull-right text-muted">
+                <i class="fa fa-fw fa-angle-right text"></i>
+                <i class="fa fa-fw fa-angle-down text-active"></i>
+            </span>
+            <i class="icon-gt-notices"></i>
+            <span translate="Base.Notice.Name">通知管理</span>
+        </a>
+        <ul class="nav nav-sub dk">
+            <li ui-sref-active="active">
+                <a ui-sref="GT.Notice.List">
+                    <span translate="Base.Notice.NoticeManage">通知</span>
+                </a>
+            </li>
+        </ul>
+    </li>
+    <li ng-class="{active:$state.includes('GT.News')}">
+        <a href class="auto">
+            <span class="pull-right text-muted">
+                <i class="fa fa-fw fa-angle-right text"></i>
+                <i class="fa fa-fw fa-angle-down text-active"></i>
+            </span>
+            <i class="icon-gt-news"></i>
+            <span translate="Base.News.Name">资讯管理</span>
+        </a>
+        <ul class="nav nav-sub dk">
+            <li ui-sref-active="active">
+                <a ui-sref="GT.News.List">
+                    <span translate="Base.News.NewsManage">资讯</span>
+                </a>
+            </li>
+        </ul>
+    </li>
+    <li>
+        <a href class="auto">
+            <span class="pull-right text-muted">
+                <i class="fa fa-fw fa-angle-right text"></i>
+                <i class="fa fa-fw fa-angle-down text-active"></i>
+            </span>
+            <i class="icon-gt-knowledge"></i>
+            <span translate="Base.Knowledge.Name">知识库管理</span>
+        </a>
+        <ul class="nav nav-sub dk">
+            <li ui-sref-active="active">
+                <a ui-sref="GT.Knowledge.List">
+                    <span translate="Base.Knowledge.KnowledgeManage">知识库</span>
+                </a>
+            </li>
+            <li ui-sref-active="active">
+                <a ui-sref="GT.KnowledgeItem.List">
+                    <span translate="Base.Knowledge.KnowledgeItemManage">页签</span>
+                </a>
+            </li>
+        </ul>
+    </li>
+    <li>
+        <a href class="auto">
+            <span class="pull-right text-muted">
+                <i class="fa fa-fw fa-angle-right text"></i>
+                <i class="fa fa-fw fa-angle-down text-active"></i>
+            </span>
+            <i class="icon-gt-pushService"></i>
+            <span translate="Base.Push.Name">推送服务管理</span>
+        </a>
+        <ul class="nav nav-sub dk">
+            <li ui-sref-active="active">
+                <a ui-sref="GT.PushSettings.List">
+                    <span translate="Base.Push.PushSettingsManage">推送设置</span>
+                </a>
+            </li>
+            <li ui-sref-active="active">
+                <a ui-sref="GT.PushUserDeviceInfo.List">
+                    <span translate="Base.Push.PushUserDeviceInfoManage">推送用户设备信息</span>
+                </a>
+            </li>
+        </ul>
+    </li>
+    <li ng-class="{active:$state.includes('GT.NewsMain')}">
+        <a href class="auto">
+            <span class="pull-right text-muted">
+                <i class="fa fa-fw fa-angle-right text"></i>
+                <i class="fa fa-fw fa-angle-down text-active"></i>
+            </span>
+            <i class="icon-gt-news"></i>
+            <span translate="Base.NewsMain.Name">资讯主体管理</span>
+        </a>
+        <ul class="nav nav-sub dk">
+            <li ui-sref-active="active">
+                <a ui-sref="GT.NewsMain.List">
+                    <span translate="Base.NewsMain.NewsMainManage">资讯主体</span>
+                </a>
+            </li>
+            <li ui-sref-active="active">
+                <a ui-sref="GT.NewsRelease.List">
+                    <span translate="Base.NewsMain.NewsReleaseManage">发布资讯</span>
+                </a>
+            </li>
+        </ul>
+    </li>
+    <li ng-class="{active:$state.includes('GT.NewsComment')}">
+        <a href class="auto">
+            <span class="pull-right text-muted">
+                <i class="fa fa-fw fa-angle-right text"></i>
+                <i class="fa fa-fw fa-angle-down text-active"></i>
+            </span>
+            <i class="icon-gt-newsComment"></i>
+            <span translate="Base.NewsComment.Name">资讯评论管理</span>
+        </a>
+        <ul class="nav nav-sub dk">
+            <li ui-sref-active="active">
+                <a ui-sref="GT.NewsComment.List">
+                    <span translate="Base.NewsComment.NewsCommentManage">资讯评论</span>
+                </a>
+            </li>
+        </ul>
+    </li>
+    <li ng-class="{active:$state.includes('GT.LearningResource')}">
+        <a href class="auto">
+            <span class="pull-right text-muted">
+                <i class="fa fa-fw fa-angle-right text"></i>
+                <i class="fa fa-fw fa-angle-down text-active"></i>
+            </span>
+            <i class="icon-gt-learning"></i>
+            <span translate="Base.LearningResource.Name">教学资源管理</span>
+        </a>
+        <ul class="nav nav-sub dk">
+            <li ui-sref-active="active">
+                <a ui-sref="GT.BaseLearningResource.List">
+                    <span translate="Base.LearningResource.BaseLearningResourceManage">教学资源</span>
+                </a>
+            </li>
+        </ul>
+    </li>
+    <li>
+        <a href class="auto">
+            <span class="pull-right text-muted">
+                <i class="fa fa-fw fa-angle-right text"></i>
+                <i class="fa fa-fw fa-angle-down text-active"></i>
+            </span>
+            <i class="icon-gt-plugin"></i>
+            <span translate="Base.PluginAppManage.Name">插件应用</span>
+        </a>
+    </li>
+    <li>
+        <a href class="auto">
+            <span class="pull-right text-muted">
+                <i class="fa fa-fw fa-angle-right text"></i>
+                <i class="fa fa-fw fa-angle-down text-active"></i>
+            </span>
+            <i class="icon-gt-task"></i>
+            <span translate="Base.DutyManage.Name">任务管理</span>
+        </a>
+        <ul class="nav nav-sub dk">
+            <!--             <li ui-sref-active="active">
+                <a ui-sref="GT.Operation.List">
+                    <span>操作管理</span>
+                </a>
+            </li> -->
+        </ul>
+    </li>
+    <li ng-repeat="menu in MenuList">
+        <a href class="auto">
+            <span class="pull-right text-muted">
+                <i class="fa fa-fw fa-angle-right text"></i>
+                <i class="fa fa-fw fa-angle-down text-active"></i>
+            </span>
+            <i class="glyphicon glyphicon-th-large icon text-success"></i>
+            <span ng-bind="menu.Name"></span>
+        </a>
+        <ul class="nav nav-sub dk">
+            <li ui-sref-active="active" ng-repeat="ChildMenu in menu.MenuInstances">
+                <a ng-href="{{ChildMenu.MenuWeb.Href}}/{{ChildMenu.Id}}">
+                    <span ng-bind="ChildMenu.WebMenuName"></span>
+                </a>
+            </li>
+        </ul>
+    </li>
+</ul>

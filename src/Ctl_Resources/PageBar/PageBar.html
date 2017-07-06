@@ -1,0 +1,15 @@
+<nav ng-if="pageData.Count!=1">
+  <ul class="pagination" ng-init="pageData.Index=1">
+    <li ng-class="pageData.Index==1?'disabled':''" ng-click="PageEvent.SetPage(-1);">
+      <a href="" aria-label="Previous">
+        <span aria-hidden="true">&laquo;</span>
+      </a>
+    </li>
+    <li ng-class="pageData.Index == $index+1?'active':''" ng-repeat="index in pageData.List" ng-click="PageEvent.GoPage($index);"><a href="javascript:;" ng-bind="index" ></a></li>
+    <li ng-class="pageData.Index==pageData.Count?'disabled':''" ng-click="PageEvent.SetPage(1);">
+      <a href="" aria-label="Next">
+        <span aria-hidden="true">&raquo;</span>
+      </a>
+    </li>
+  </ul>
+</nav>

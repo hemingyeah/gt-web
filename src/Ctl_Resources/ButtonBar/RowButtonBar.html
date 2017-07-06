@@ -1,0 +1,17 @@
+	<div class="ButtonBar">
+		<i class="icon-refresh" ng-if="event.ResetPassword" ng-click="event.ResetPassword(row)" style="color:#00CC66;" title="重置密码"></i>
+		<i class="icon-social-dropbox" ng-if="event.PluginTag" ng-click="event.PluginTag(row)" style="color:#00CC66;" title="插件标签"></i>
+		<i class="fa fa-group" ng-if="event.PersonalTag" ng-click="event.PersonalTag(row)" style="color:#00CC66;" title="人组标签"></i>
+		<i class="icon-list" ng-if="event.SetPower" ng-click="event.SetPower(row)" style="color:#00CC66;" title="功能权限"></i>
+		<i class="fa fa-sitemap" ng-if="event.Deptment" ng-click="event.Deptment(row)" style="color:#00CC66;" title="节点权限"></i>
+		<i class="icon-arrow-left" ng-if="event.Plugin" ng-click="event.Plugin(row)" style="color:#00CC66;" title="插件权限"></i>
+		<i class="fa fa-comment" ng-if="event.InfoType" ng-click="event.InfoType(row)" style="color:#00CC66;" title="信息分类"></i>
+		<i class="icon-user" ng-if="event.Role" ng-click="event.Role(row)" style="color:#00CC66;" title="角色分配"></i>
+		<i class="fa fa-university" ng-if="event.Company" ng-click="event.Company(row)" style="color:#00CC66;" title="企业账号"></i>
+		<i class="glyphicon glyphicon-user" ng-if="event.Person" ng-click="event.Person(row)" style="color:#00CC66;" title="个人账号"></i>
+        <i class="icon-paper-clip" ng-if="event.AddDetail" ng-click="event.AddDetail(row)" style="color:#0099FF;" title="添加详情"></i>
+        <i class="fa fa-pencil" ng-if="event.Edit" ng-click="event.Edit(row)" style="color:#0099FF;" title="编辑"></i>
+    	<i class="icon-paper-clip" ng-if="event.Upload" ng-click="event.Upload(row)" style="color:#00CC66;" title="上传"></i>
+    	<i class="glyphicon glyphicon-remove" ng-if="event.Delete" ng-click="event.Delete(row)" style="color:red;" title="删除"></i>
+    	<i class="glyphicon glyphicon-search" ng-if="event.SearchView" ng-click="event.SearchView(row)" style="color:red;" title="查询"></i>
+	</div>

@@ -1,0 +1,12 @@
+<Panel gtform Dialog>
+	<phead>解决方案生成</phead>
+	<pbody>
+		<RowTextBox Label="项目名称" ngmodel="model.ProjectName" placeholder="填写完整解决方案名称，如Gaea.Kit" colspan='2' Required></RowTextBox>
+		<FormRow colspan='2' Label='请选择模型' >
+			<GTGrid ItemCode="row" ColumnCode="CreateSolution" ListCode="ModelList" select index></GTGrid>
+		</FormRow>
+	</pbody>
+	<pfoot>
+		<ButtonBar float='right'></ButtonBar>
+	</pfoot>
+</Panel>

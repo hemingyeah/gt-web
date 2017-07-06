@@ -1,0 +1,217 @@
+﻿<!DOCTYPE html>
+<html xmlns:ng="http://angularjs.org" lang="zh_CN" id='data-ng-app' data-ng-app="app">
+
+<head>
+    <meta charset="utf-8" />
+    <title ng-bind="app.name||'产业互联网'"></title>
+    <meta name="description" content="web,app" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <link rel="shortcut icon" href='favicon.ico' type="image/x-icon">
+    <link rel="stylesheet" href="css/bootstrap.css" type="text/css" />
+    <link rel="stylesheet" href="css/animate.css" type="text/css" />
+    <link rel="stylesheet" href="css/font-awesome.css" type="text/css" />
+    <!-- <link rel="stylesheet" href="css/font-awesome.min.css" type="text/css" /> -->
+    <link rel="stylesheet" href="css/simple-line-icons.css" type="text/css" />
+    <link rel="stylesheet" href="css/font.css" type="text/css" />
+    <link rel="stylesheet" href="css/app.css" type="text/css" />
+</head>
+
+<body ng-controller="AppCtrl">
+    <div class='loading'>
+        <div>
+            <img alt="数据加载中..." src="/Resources/Images/Loading.gif">
+        </div>
+    </div>
+    <div class="app" ng-class="{'app-header-fixed':app.settings.headerFixed, 'app-aside-fixed':app.settings.asideFixed, 'app-aside-folded':app.settings.asideFolded, 'app-aside-dock':app.settings.asideDock, 'container':app.settings.container}" ui-view></div>
+    <!-- jQuery -->
+    <script src="/node_modules/jquery/dist/jquery.js"></script>
+    <!-- Angular -->
+    <script src="/node_modules/angular/angular.js"></script>
+    <script src="/node_modules/angular/i18n/angular-locale_zh-cn.js"></script>
+    <script src="/node_modules/angular/angular-animate.js"></script>
+    <script src="/node_modules/angular/angular-cookies.js"></script>
+    <script src="/node_modules/angular/angular-resource.js"></script>
+    <script src="/node_modules/angular/angular-sanitize.js"></script>
+    <script src="/node_modules/angular/angular-touch.js"></script>
+    <!-- alertify -->
+    <link rel="stylesheet" href="node_modules/alertify/dist/css/alertify.css" type="text/css" />
+    <script src="/node_modules/alertify/dist/js/alertify.js"></script>
+    <!-- aggrid -->
+    <link href="/node_modules/aggrid/ag-grid.min.css" rel="stylesheet">
+    <link href="/node_modules/aggrid/theme-blue.min.css" rel="stylesheet">
+    <link href="/node_modules/aggrid/theme-fresh.min.css" rel="stylesheet">
+    <script src="/node_modules/aggrid/ag-grid.js"></script>
+    <!-- Jcrop -->
+    <!-- <link rel="stylesheet" href="/vendor/jquery-Jcrop/css/jquery.Jcrop.css" /> -->
+    <!-- // <script type="text/javascript" src="/vendor/jquery-Jcrop/js/jquery.Jcrop.js"></script> -->
+    <!-- angularImageCrop -->
+    <link rel="stylesheet" href="/vendor/angularImageCrop/image-crop-styles.css" />
+    <script type="text/javascript" src="/vendor/angularImageCrop/image-crop.js"></script>
+    <!-- Vendor -->
+    <script src="vendor/angular/angular-ui-router/angular-ui-router.js"></script>
+    <script src="vendor/angular/ngstorage/ngStorage.js"></script>
+    <!-- bootstrap -->
+    <script src="vendor/angular/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+    <!-- lazyload -->
+    <script src="/node_modules/angular-plugin/ocLazyLoad/ocLazyLoad.min.js"></script>
+    <!-- translate -->
+    <script src="vendor/angular/angular-translate/angular-translate.js"></script>
+    <script src="vendor/angular/angular-translate/loader-static-files.js"></script>
+    <script src="vendor/angular/angular-translate/storage-cookie.js"></script>
+    <script src="vendor/angular/angular-translate/storage-local.js"></script>
+    <script src="vendor/aliyun/oss-js-upload.js"></script>
+    <script src="vendor/aliyun/sdk/aliyun-sdk.min.js"></script>
+    <!-- App -->
+    <script src="js/app.js"></script>
+    <script src="js/config.js"></script>
+    <script src="js/config.lazyload.js"></script>
+    <!--<script src="js/config.router.js"></script>xuhao 已将登陆路由移至app.js中-->
+    <script src="js/main.js"></script>
+    <script src="js/services/ui-load.js"></script>
+    <!--<script src="js/filters/fromNow.js"></script>xuhao-->
+    <script src="js/directives/setnganimate.js"></script>
+    <script src="js/directives/ui-butterbar.js"></script>
+    <script src="js/directives/ui-focus.js"></script>
+    <script src="js/directives/ui-fullscreen.js"></script>
+    <script src="js/directives/ui-jq.js"></script>
+    <script src="js/directives/ui-module.js"></script>
+    <script src="js/directives/ui-nav.js"></script>
+    <script src="js/directives/ui-scroll.js"></script>
+    <script src="js/directives/ui-shift.js"></script>
+    <script src="js/directives/ui-toggleclass.js"></script>
+    <script src="js/directives/ui-validate.js"></script>
+    <script src="js/controllers/bootstrap.js"></script>
+    <!-- Lazy loading -->
+    <script src="/node_modules/less-1.7.1.min.js"></script>
+    <link rel="stylesheet/less" href="/resources/Styles/ControlStyle.less">
+    <link rel="stylesheet" href="/vendor/jquery/chosen/chosen.css" type="text/css" />
+    <!-- ngDialog -->
+    <link rel="stylesheet" href="/node_Modules/angular-plugin/ngDialog/css/ngDialog.min.css">
+    <script src="/node_modules/angular-plugin/ngDialog/js/ngDialog.min.js"></script>
+    <script src="/resources/scripts/UrlConfig.js"></script>
+    <script src="/resources/scripts/UrlRoute.js"></script>
+    <script src="/resources/scripts/PublicController.js"></script>
+    <script src="/resources/scripts/ManageController.js"></script>
+    <script src="/node_Modules/zTree/js/jquery.ztree.all-3.5.js"></script>
+    <link rel="stylesheet" href="/node_Modules/zTree/css/ztreeStyle/ztreeStyle.css">
+    <!-- ApplicationModel -->
+    <script src="/Views/AppManage/Script/App_Route.js"></script>
+    <script src="/Views/AdvertisementManage/Script/Advertisementrelease_Route.js"></script>
+    <script src="Views/GitManage/Script/GitManage_Route.js"></script>
+    <script src="/Views/AdvertisementManage/Script/Advertisement_Route.js"></script>
+    
+    <script src="/Views/LearningResourceManage/Script/LearningResource_Route.js"></script>
+    <script src="/Views/NoticeNewManage/Script/NoticeNewTemplate_Route.js"></script>
+    <script src="/Views/NoticeNewManage/Script/NoticeNewrelease_Route.js"></script>
+    <script src="/Views/NoticeNewManage/Script/NoticeNew_Route.js"></script>
+    <script src="/Views/NoticeManage/Script/Notice_Route.js"></script>
+    <script src="/Views/NewsManage/Script/News_Route.js"></script>
+    <script src="/Views/NewsMainManage/Script/NewsMain_Route.js"></script>
+    <script src="/Views/NewsMainManage/Script/NewsRelease_Route.js"></script>
+    <script src="/Views/NewsCommentManage/Script/NewsComment_Route.js"></script>
+    <script src="/Views/KnowledgeManage/Script/Knowledge_Route.js"></script>
+    <script src="/Views/PushManage/Script/PushSettings_Route.js"></script>
+    <script src="/Views/PushManage/Script/PushUserDeviceInfo_Route.js"></script>
+    <script src="/Views/KnowledgeManage/Script/KnowledgeItem_Route.js"></script>
+    <script src="/Views/TemplateManage/Script/Template_Route.js"></script>
+    <script src="/Views/Menu/Script/Menu_Route.js"></script>
+    <script src="/Views/Base/PageManage/Script/Page_Route.js"></script>
+    <script src="/Views/Base/OperationManage/Script/Operation_Route.js"></script>
+    <script src="/Views/Base/PluginManage/Script/Plugin_Route.js"></script>
+    <script src="/Views/Base/PluginInstanceManage/Script/PluginInstance_Route.js"></script>
+    <script src="/Views/Authority/AccountManage/Script/Account_Route.js"></script>
+    <script src="/Views/Authority/PersonalAccountManage/Script/PersonalAccount_Route.js"></script>
+    <script src="/Views/PowerManage/Script/Power_Route.js"></script>
+    <script src="/Views/RoleManage/Script/Role_Route.js"></script>
+    <script src="/Views/Login/Script/Login_Route.js"></script>
+    <script src="/Views/UserManage/Script/GroupUser_Route.js"></script>
+    <script src="/Views/DeptmentManage/Script/Deptment_Route.js"></script>
+    <script src="/Views/DataDictionaryManage/Script/DataDictionary_Route.js"></script>
+    <script src="/Views/DataBaseManage/Script/DataBase_Route.js"></script>
+    <script src="/Views/TecSchemeManage/Script/TecScheme_Route.js"></script>
+    <script src="/Views/TagManage/Script/Tag_Route.js"></script>
+    <script src="/Views/DesignManage/Script/Design_Route.js"></script>
+    <script src="/Views/LogManage/Script/Log_Route.js"></script>
+    <script src="/Views/UserManage/Script/GroupManage_Route.js"></script>
+    <script src="/Views/DataBaseManage/Script/DataBase_Service.js"></script>
+    <script src="Views/ReportManage/Script/Report_Route.js"></script>
+    <script src="/Views/ImportManage/Script/ImportManage_Route.js"></script>
+    <!--<script src="/Views/ZookeeperConfigManage/Script/ZookeeperConfig_Route.js"></script>
+    -->
+    <script src="/Views/ServerManage/Script/Server_Route.js"></script>
+    <!--<script src="/Resources/scripts/Route.js"></script>
+    -->
+    <script src="/Web/Route.js"></script>
+    <script src="/node_modules/less-1.7.1.min.js"></script>
+    <script>
+        var intervalList = [];
+        var GridColumnList = {};
+        var Route = {};
+        var __GetGridColumn = function (code) {
+            return GridColumnList[code];
+        }
+    </script>
+    <script>
+        /*文件上传*/
+        var FileUpload = {
+            BuildUploadObj: function () {
+                return new OssUpload({
+                    bucket: 'doc-gtintel',
+                    endpoint: 'http://oss-cn-hangzhou.aliyuncs.com',
+                    chunkSize: 1048576,
+                    concurrency: 2,
+                    aliyunCredential: {
+                        "accessKeyId": "gin6ZIIh3NaJcvFf",
+                        "secretAccessKey": "BKY98SroF6UrPM8fnD3VOk4vNpCF8m"
+                    }
+                    // stsToken: stsToken
+                });
+            },
+            BuildUploadSetting: function (file, folder, done, error, progress) {
+                return {
+                    file: file,
+                    key: folder + file.name.substr(file.name.lastIndexOf('.')),
+                    maxRetry: 3,
+                    headers: {
+                        'CacheControl': 'public',
+                        'Expires': '',
+                        'ContentEncoding': '',
+                        'ContentDisposition': '',
+                        'ServerSideEncryption': ''
+                    },
+                    onerror: error,
+                    oncomplete: done,
+                    onprogress: progress
+                };
+            },
+            BuildGUID: function () {
+                var s = [];
+                var hexDigits = "0123456789abcdef";
+                for (var i = 0; i < 36; i++) {
+                    s[i] = hexDigits.substr(Math.floor(Math.random() * 0x10), 1);
+                }
+                s[14] = "4"; // bits 12-15 of the time_hi_and_version field to 0010
+                s[19] = hexDigits.substr((s[19] & 0x3) | 0x8, 1); // bits 6-7 of the clock_seq_hi_and_reserved to 01
+                s[8] = s[13] = s[18] = s[23] = "-";
+
+                var uuid = s.join("");
+                return uuid;
+            }
+        };
+    </script>
+    <script type="text/ng-template" id="nodes_renderer.html">
+        <div class="tree-node tree-node-content">
+            <a data-nodrag ng-click="children.collapsed=!children.collapsed;TreeEvent.LoadChildData(this,children)" ng-if='children.isParent'>
+                <span class="fa angular-ui-tree-collspan" ng-class="{'fa-caret-right': !children.collapsed, 'fa-caret-down': children.collapsed}"></span>
+            </a>
+            <span class="fa angular-ui-tree-collspan" ng-if='!children.isParent'></span>
+            <span ng-bind='children.name' ng-class="{active:SelectNode.Id == children.Id}" ng-click="TreeEvent.SelectNode(this)"></span>
+        </div>
+        <ol ui-tree-nodes="" ng-model="children.Childrens" ng-class="{hidden: !children.collapsed}">
+            <li ng-repeat="children in children.Childrens" ui-tree-node ng-include="'nodes_renderer.html'"></li>
+        </ol>
+    </script>
+    <div class="pop alert alert-success"></div>
+</body>
+
+</html>

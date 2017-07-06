@@ -1,0 +1,48 @@
+<Panel gtform Dialog>
+	<phead>自建模板</phead>
+	<pbody>
+		<form gtform name="form">
+		<RowTextBox maxlength="10" Label="模板名称" ngModel="model.Name" Required></RowTextBox>
+		<RowTextBox maxlength="100" Label="模板描述" ngModel="model.Description"></RowTextBox>
+		<FormRow Label="是否默认模板">
+			<CheckBox ngModel="model.IsDefault"></CheckBox>
+		</FormRow>
+		<hr>
+		<table class="table table-striped">
+			<thead>
+				<tr>
+					<th width="25%">名称</th>
+					<th>描述</th>
+					<th width="15%">是否为字典值</th>
+					<th width="10%">操作</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat="temp in model.TemplateDetails | reverse">
+					<td ng-if='temp.InfoType!=0'>
+						<DropDown onSelect="event.ChangeDropDown($item,$model,temp)" repeat="column.DisplayName as column in DicDropDownList" ngdisabled="temp.InfoType===0" Display='{{$select.selected.DisplayName}}' placeholder='请选择模板列' ngmodel="temp.Name">
+							<div ng-bind="column.DisplayName"></div>
+						</DropDown>
+					</td>
+					<td ng-if="temp.InfoType==0">
+						<DropDown repeat="column.Name as column in model.TemplateDetails" ngdisabled="temp.InfoType===0" Display='{{$select.selected.Name}}' placeholder='请选择模板列' ngmodel="temp.Name">
+							<div ng-bind="column.Name"></div>
+						</DropDown>
+					</td>
+					<td>{{ temp.Description }}</td>
+					<td>
+						<CheckBox ngdisabled="temp.InfoType===0" ngmodel="temp.IsDicVal" ngchange="event.CheckRow(temp)" />
+					</td>
+					<td>
+						<button style="color:red;border:0px; background-color:transparent;" title="删除" class="glyphicon glyphicon-remove" ng-disabled="temp.InfoType===0" ng-click="event.DelRow(temp,$index)" />
+					</td>
+				</tr>
+			</tbody>
+		</table>
+		<button class="btn m-b-xs w-xs btn-info" ng-click="event.AddRow()">添加行</button>
+		</form>
+	</pbody>
+	<pfoot>
+		<ButtonBar float="right"></ButtonBar>
+	</pfoot>
+</Panel>

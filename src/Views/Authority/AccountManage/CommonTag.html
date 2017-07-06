@@ -1,0 +1,13 @@
+<Panel gtform Dialog>
+	<phead>普通标签</phead>
+	<pbody>
+		<FormRow colspan="2" Label="选择标签">
+			<DropDown multiple ngmodel="model.Permissions" placeholder='请选择...' Display='{{$item.Name}}' repeat="option in PersonalTag" filter="Name">
+            	<div ng-bind-html="option.Name | highlight: $select.search"></div>
+        	</DropDown>
+		</FormRow>
+	</pbody>
+	<pfoot>
+		<ButtonBar></ButtonBar>
+	</pfoot>
+</Panel>

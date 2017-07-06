@@ -1,0 +1,21 @@
+<div style="padding:10px 0"></div>
+<div class="container">
+	<div class="row">
+		<div class="GT-RecommendArticle col-lg-12">
+			<div class="MainContent">
+				<div class="ArticleMsg">
+					<h5><b ng-bind="data.Name"></b></h5>
+					<small><span>发布时间：</span><span ng-bind="data.AddTime | date:'yyyy年MM月dd日 HH:mm:ss'"></span></small>
+				</div>
+				<div class="ArticleContent"	>
+					<h3 ng-bind="data.Name"></h3>
+					<div class="ArticleTop" ng-bind-html="data.Content">
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<FootModel></FootModel>

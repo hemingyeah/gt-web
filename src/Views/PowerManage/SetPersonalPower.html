@@ -1,0 +1,31 @@
+<div  style="min-height:700px;" class="app-content-full">
+<Layout ng-init="app.Layout = true;">
+	<Item Label="应用" width='sm'>
+		<GTList ListCode='AppList' ItemCode="row">
+			<a href class="list-group-item" ng-bind="row.AppName" ng-class="{active:Sel_AppID== row.AppId}" ng-click="event.SelectApp(row);"></a>
+		</GTList>
+	</Item>
+	<Item Label="功能权限">
+		<Panel ng-repeat="row in AppList" ng-if="Sel_App== row">
+			<phead>所属平台</phead>
+			<pbody>
+				<ButtonBar></ButtonBar>
+				<TabPanel>
+					<Tab Label="Web">
+						<ul class="ztree" id='Web_{{row.AppId}}'></ul>
+					</Tab>
+					<Tab Label="PC">
+						<ul class="ztree" id='PC_{{row.AppId}}'></ul>
+					</Tab>
+					<Tab Label="Andriod">
+						<ul class="ztree" id='Andriod_{{row.AppId}}'></ul>
+					</Tab>
+					<Tab Label="IOS">
+						<ul class="ztree" id='IOS_{{row.AppId}}'></ul>
+					</Tab>
+				</TabPanel>
+			</pbody>
+		</Panel>
+	</Item>
+</Layout>
+</div>

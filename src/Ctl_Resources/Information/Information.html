@@ -1,0 +1,19 @@
+<div class="InfoGroupItem">
+	<div class="container">
+		<div>
+			<GroupTopModel HeadTitle="资讯" Url="#/Web/List/Info" Type="Info"></GroupTopModel>
+		</div>
+		<div class="row Home-ImageListCtrl">
+			<div class="col-sm-6 col-md-4" ng-repeat="row in ThreeNews">
+				<a href="#/Web/Content/Info/{{row.Id}}" class="thumbnail">
+					<img ng-src="{{row.ImageUrl}}" alt="" style="height:200px;width:100%">			
+					<div class="caption">
+						<h3 class="title" style="text-overflow:ellipsis;white-space: nowrap;overflow:hidden;" ng-bind="row.Name">
+						</h3>
+						<p ng-bind-html="row.Content | ParseHtml" class="content" style="max-height:60px; overflow:hidden; min-height:60px;"></p>
+					</div>
+				</a>
+			</div>
+		</div>
+	</div>
+</div>

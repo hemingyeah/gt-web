@@ -1,0 +1,47 @@
+	<div class="container">
+		<div class="GT-SecondaryNav" ng-if="ViewType!='Image'&&GroupType" style="margin-bottom:20px" ng-if="GroupType" ng-class="GroupType?'col-lg-2':''">
+			<p>论坛</p>
+			<div ng-repeat="row in GroupType">
+				<img src="/resources/images/home/point.png" alt="">
+				<span ng-bind="row.Name" ng-click="ChangeTab(row.Id)"></span>
+			</div>
+		</div>
+		<div class="GT-ForumContent" ng-if="ViewType!='Image'" ng-class="GroupType?'col-lg-10':'col-lg-12'">
+			<div class="page-header">
+			  <h3 ng-bind="NavName"></h3>
+			</div>
+			<div class="table-responsive GT-Table">
+				<!-- <GTGrid ItemCode="row" ColumnCode="BBCOWeb" PageChange="event.LoadListData()" ListCode="ListData" PageData='Page' Href='true' index></GTGrid> -->
+				<table>
+					<thead>
+						<tr>
+							<th>序号</th>
+							<th>标题</th>
+							<th>时间</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr ng-repeat="row in ListData">
+							<td ng-bind="$index+1"></td>
+							<td><div><a href="#/Web/Content/{{Type}}/{{row.Id}}" ng-bind="row.Name"></a></div></td>
+							<td class="time"><div class="" ng-bind-html="row.AddTime | date:'yyyy-MM-dd'"></div></td>
+						</tr>
+					</tbody>
+				</table>
+				<PagerBar ngmodel="Index" totalitems="Count" PageSize='Size' ngchange="event.LoadListData();" source="Page" ShowLR ShowLast></PagerBar>
+			</div>
+		</div>
+		<div ng-if="ViewType=='Image'">
+			<div class="page-header">
+			  <h3 ng-bind="NavName"></h3>
+			</div>
+			<div class="row GT-KHImageList" style="margin:30px 0;">
+				<div class="col-lg-2 col-xs-6 GT-Image-Item" ng-repeat="row in ListData">
+					<img ng-src="{{row.Photo}}" alt="" class="img-circle">
+					<div style="text-align:center;" ng-bind="row.Company"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+<FootModel></FootModel>

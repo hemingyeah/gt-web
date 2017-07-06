@@ -1,0 +1,9 @@
+<Layout ng-init="app.Layout = true;">
+    <Item Label="组织机构" width="sm">
+        <checkbox ngmodel="viewCurrentNodeData" label="只看当前节点人员" style="margin:10px 0px 0px 10px"></checkbox>
+        <Deptment id="GroupUserTree" selectmode="false"></Deptment>
+    </Item>
+    <Item Label="所属人员" event="gridOptions.event">
+        <datagrid agGrid="gridOptions" page="true"></datagrid>
+    </Item>
+</Layout>

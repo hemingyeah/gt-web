@@ -1,0 +1,34 @@
+<Panel gtform Dialog>
+    <phead>绑定人员组织关系</phead>
+    <pbody style='padding: 5px 0px 5px 5px;'>
+        <form gtform name='form'>
+            <div style="height: 500px; overflow: hidden;">
+                <div class="row" style="margin: 5px;">
+                    <div class="col-md-5" style="padding: 0px; padding-right: 5px;">
+                        <Panel>
+                            <phead>
+                                组织机构
+                            </phead>
+                            <pbody style="height: 450px; overflow: auto;">
+                                <Deptment id="GroupUser" check="true"></Deptment>
+                            </pbody>
+                        </Panel>
+                    </div>
+                    <div class="col-md-7" style="padding: 0px 5px;">
+                        <Panel>
+                            <phead>
+                                人员信息
+                            </phead>
+                            <pbody style="height: 450px; overflow: auto;">
+                                <dataGrid agGrid="gridOptions"></dataGrid>
+                            </pbody>
+                        </Panel>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </pbody>
+    <pfoot>
+        <ButtonBar></ButtonBar>
+    </pfoot>
+</Panel>

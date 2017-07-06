@@ -1,0 +1,23 @@
+
+<panel Dialog>
+    <phead> <span ng-if='model.Id'>编辑[内容]</span> <span ng-if='!model.Id'>新增[内容]</span></phead>
+    <pbody>
+        <form gtform name='form'>
+            <FormRow colspan="2" Label="主题" required="true">
+                <TextBox ngmodel="model.Title" required="true"></TextBox>
+            </FormRow>
+            <FormRow colspan="2" Label="通知来源" required="true">
+                <TextBox ngmodel="model.Source" required="true"></TextBox>
+            </FormRow>
+            <FormRow colspan="2" Label="通知级别Id" required="true">
+                <DropDownTreeList ngmodel="model.FkNoticeLevelId" ParentId="7b663dd3-e5f6-caee-90b0-08d3164a4ffd" model="model" configtree="event.ConfigTree()" DisplayModel="model.NoticeLevelName" required="true"></DropDownTreeList>
+            </FormRow>
+            <FormRow colspan="2" Label="内容" required="true">
+                <RichTextBox value="内容" ngmodel="Content" uploadtempid="upload" richtextid="richtext" required="true"></RichTextBox>
+            </FormRow>
+        </form>
+    </pbody>
+    <pfoot>
+        <ButtonBar></ButtonBar>
+    </pfoot>
+</panel>

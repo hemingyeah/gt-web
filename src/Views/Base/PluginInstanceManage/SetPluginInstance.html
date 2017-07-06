@@ -1,0 +1,15 @@
+<div style="min-height:700px;" class="app-content-full">
+	<Layout>
+		<Item Label="插件" width='sm'>
+			<GTList ListCode='AppPluginList' ItemCode="row">
+				<a href class="list-group-item" ng-bind="row.Name" ng-class="{active:Sel_PluginInsID== row.Id}" ng-click="event.SelectPluginIns(row);"></a>
+			</GTList>
+		</Item>
+		<Item>
+			<Panel Label="信息分类" ng-repeat="row in AppPluginList" ng-if="Sel_PluginInsID== row.Id">
+				<ButtonBar></ButtonBar>
+				<ul class="ztree" id='{{row.Id}}'></ul>
+			</Panel>
+		</Item>
+	</Layout>
+</div>

@@ -1,0 +1,20 @@
+<Panel Dialog style='padding:0;'>
+    <phead>{{model.DataState.Name}}数据源信息</phead>
+    <pbody>
+        <form name="form" class="form-validation form-horizontal">
+            <FormRow colspan='2' Label="零件" ng-disabled='!model.Id'>
+                <DropDown ngmodel="model.Organ" refresh='event.LoadOrgan($select.search)' placeholder='请选择...' Display='{{$select.selected.DisplayName}}' repeat="option in organs" filter="DisplayName">
+                    <div ng-bind-html="option.DisplayName | highlight: $select.search"></div>
+                </DropDown>
+            </FormRow>
+            <RowTextBox Label="标识名称" colspan='2' ngmodel="model.Name" required></RowTextBox>
+            <RowTextBox Label="数据库服务地址" colspan='2' ngmodel="model.Server" required></RowTextBox>
+            <RowTextBox Label="数据库名称" colspan='2' ngmodel="model.Database" required></RowTextBox>
+            <RowTextBox Label="数据库用户名" colspan='2' ngmodel="model.UserName" required></RowTextBox>
+            <RowTextBox Label="数据库密码" colspan='2' ngmodel="model.Password" type="password" required></RowTextBox>
+        </form>
+    </pbody>
+    <pfoot>
+        <ButtonBar></ButtonBar>
+    </pfoot>
+</Panel>

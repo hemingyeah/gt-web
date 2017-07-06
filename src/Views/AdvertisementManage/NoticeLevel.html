@@ -1,0 +1,13 @@
+<panel Dialog>
+    <phead>选择通知级别</phead>
+    <pbody>
+        <FormRow colspan="2" Label="通知级别" required="true">
+            <DropDown placeholder='请选择...' Display='{{$select.selected.FkName}}' ngmodel='model.FkDimensionsId' repeat="option.FkDimensionsId as option in Dimensions" filter="FkName">
+                <div ng-bind-html="option.FkName | highlight: $select.search"></div>
+            </DropDown>
+        </FormRow>
+    </pbody>
+    <pfoot>
+        <ButtonBar></ButtonBar>
+    </pfoot>
+</panel>

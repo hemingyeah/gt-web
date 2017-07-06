@@ -1,0 +1,10 @@
+<Layout>
+	<Item Label="人员群组" width='sm'>
+		<PersonalAccount id="GroupUserTree" ></PersonalAccount>
+	</Item>
+	<Item Label="个人帐号">
+		<ButtonBar></ButtonBar>
+		<GTGrid ItemCode="row" ListCode="data" ColumnCode="PersonalAccountManage" PageChange="event.LoadData()"  PageData='Page' select index edit>
+		</GTGrid>
+	</Item>
+</Layout>

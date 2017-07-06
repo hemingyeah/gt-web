@@ -1,0 +1,27 @@
+	<Panel gtform Dialog>
+		<phead>账号编辑</phead>
+		<pbody>
+			<form name="form" class="form-validation form-horizontal">
+				<RowTextBox Label="账号" ngmodel="model.Account" ngdisabled="model.Id" Required></RowTextBox>
+				<FormRow Label="所属应用" Required>
+					<input type="text" ng-model='model.AppId' Required ng-show='false'>
+					<DropDown placeholder='请选择...' ngdisabled="model.Id" search='true' Display='{{$select.selected.AppName}}' ngmodel='model.AppId' repeat="option.AppId as option in AppList" filter="AppName">
+		            	<div ng-bind-html="option.AppName | highlight: $select.search"></div>
+		        	</DropDown>
+				</FormRow>
+				<RowTextBox Label="账号名称" ngmodel="model.AccountName" Required></RowTextBox>
+				<RowTextBox Label="密码" ngmodel="model.Password" ng-if="!model.Id" type='password' Required></RowTextBox>
+				<RowTextBox Label="确认密码" ngmodel="model.RePassword" ng-if="!model.Id" type='password' Required></RowTextBox>
+				<FormRow Label="可分配账号数" Required>
+					<Number ngmodel="model.DistributionNum" max='100000' ButtonStyle='top' Required></Number>
+				</FormRow>
+				<FormRow Label="可查看个人账号数" Required>
+					<Number ngmodel="model.ViewNum" max='100000' ButtonStyle='top' Required></Number>
+				</FormRow>
+				<RowTextBox Label="账号描述" ngmodel="model.AccountDesc"></RowTextBox>
+			</form>
+		</pbody>
+		<pfoot>
+			<ButtonBar></ButtonBar>
+		</pfoot>
+	</Panel>

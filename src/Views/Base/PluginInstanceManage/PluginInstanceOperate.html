@@ -1,0 +1,90 @@
+<Panel Dialog>
+    <phead>实例编辑</phead>
+    <pbody>
+        <form name='form' gtform>
+            <FormRow colspan='2' Label="所属应用" Required>
+                <input type="hidden" ng-model='model.AppId' Required>
+                <DropDown placeholder='请选择...' search='true' Display='{{$select.selected.AppName}}' ngmodel='model.AppId' repeat="option.AppId as option in AppList" filter="AppName">
+                    <div ng-bind-html="option.AppName | highlight: $select.search"></div>
+                </DropDown>
+            </FormRow>
+            <FormRow colspan='2' Label="所属插件" Required>
+                <input type="hidden" ng-model='model.FkPluginId' Required>
+                <DropDown placeholder='请选择...' Display='{{$select.selected.Name}}' ngmodel='model.FkPluginId' repeat="option.Id as option in PluginList" filter="Name">
+                    <div ng-bind-html="option.Name | highlight: $select.search"></div>
+                </DropDown>
+            </FormRow>
+            <RowTextBox colspan='2' Label="实例名称" ngmodel="model.Name" Required></RowTextBox>
+            <RowTextBox colspan='2' Label="实例编码" ngmodel="model.Code" Required></RowTextBox>
+            <RowTextBox colspan='2' Label="版本号" ngmodel="model.CurrentVersion" Required></RowTextBox>
+            <FormRow Label="排序号">
+                <Number ngmodel='model.OrderIndex'></Number>
+            </FormRow>
+            <FormRow colspan='2' Label="是否启用">
+                <Switch ngmodel="model.IsEnabled"></Switch>
+            </FormRow>
+            <Panel gtform ng-repeat="row in model.MenuInstances" expand hidebody>
+                <phead>{{row.Name}}</phead>
+                <pbody>
+                    <TabPanel>
+                        <Tab Label="Web">
+                            <RowTextBox Label="页面名称" colspan='2' ngmodel="row.WebMenuName"></RowTextBox>
+                            <RowTextBox Label="图标" colspan='2' ngmodel="row.WebIcon"></RowTextBox>
+                            <FormRow Label="排序号">
+                                <Number ngmodel='row.WebItemOrder'></Number>
+                            </FormRow>
+                        </Tab>
+                        <Tab Label="Android">
+                            <RowTextBox Label="页面名称" colspan='2' ngmodel="row.AndroidMenuName"></RowTextBox>
+                            <RowTextBox Label="图标" colspan='2' ngmodel="row.AndroidIcon"></RowTextBox>
+                            <FormRow Label="排序号">
+                                <Number ngmodel='row.AndroidItemOrder'></Number>
+                            </FormRow>
+                        </Tab>
+                        <Tab Label="IOS">
+                            <RowTextBox Label="页面名称" colspan='2' ngmodel="row.IosMenuName"></RowTextBox>
+                            <RowTextBox Label="图标" colspan='2' ngmodel="row.IosIcon"></RowTextBox>
+                            <FormRow Label="排序号">
+                                <Number ngmodel='row.IosItemOrder'></Number>
+                            </FormRow>
+                        </Tab>
+                        <Tab Label="PC">
+                            <RowTextBox Label="页面名称" colspan='2' ngmodel="row.PcMenuName"></RowTextBox>
+                            <RowTextBox Label="图标" colspan='2' ngmodel="row.PcIcon"></RowTextBox>
+                            <FormRow Label="排序号">
+                                <Number ngmodel='row.PcItemOrder'></Number>
+                            </FormRow>
+                        </Tab>
+                    </TabPanel>
+                    <FormRow colspan='2' Label="操作">
+                        <div class="col-sm-12">
+                            <div class="form-group col-sm-3">
+                                <label>名称</label>
+                            </div>
+                            <div class="form-group col-sm-3">
+                                <label>编码</label>
+                            </div>
+                        </div>
+                        <div class="col-sm-12" ng-repeat="btns in row.OperationInstances">
+                            <div class="form-group col-sm-3">
+                                <input class="form-control" ng-model="btns.Name" placeholder="名称">
+                            </div>
+                            <div class="form-group col-sm-3">
+                                <input class="form-control" ng-model="btns.Code" placeholder="编码">
+                            </div>
+                            <div class="col-sm-3">
+                                <button class="btn btn-default glyphicon glyphicon-trash" ng-click="event.DeleteOperation(row,$index);"></button>
+                            </div>
+                        </div>
+                        <div class="col-sm-12">
+                            <button ng-click="event.AddOperation(row);">+</button>
+                        </div>
+                    </FormRow>
+                </pbody>
+            </Panel>
+        </form>
+    </pbody>
+    <pfoot>
+        <ButtonBar></ButtonBar>
+    </pfoot>
+</Panel>

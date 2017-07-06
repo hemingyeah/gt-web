@@ -1,0 +1,11 @@
+<Layout ng-init="app.Layout = true;">
+	<Item Label="基础标签" treebar="true" width="sm">
+		<Deptment id="GroupUserTree" check="true"></Deptment>
+		<!-- <SelectGroupTextBox ngmodel="" DisplayModel="" Type="" ParentID="" Required></SelectGroupTextBox> -->
+	</Item>
+	<Item Label="通知管理">
+		<ButtonBar></ButtonBar>
+		<GTGrid ItemCode="row" ColumnCode="BaseNotice" ListCode="data" PageChange="event.LoadData()" PageData='Page' select index>
+		</GTGrid>
+	</Item>
+</Layout>

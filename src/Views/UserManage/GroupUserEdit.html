@@ -1,0 +1,68 @@
+<Panel gtform Dialog>
+    <phead><span ng-if='model.Id'>编辑[人员]</span> <span ng-if='!model.Id'>新增[人员]</span></phead>
+
+    <pbody style='padding: 5px 0px 5px 5px;'>
+        <form gtform name='form' ng-init="model.KeyType=0;ColumnExts=[{}];ColumnTags=[{'Id':'B5604CE2-AF1B-CAD9-8C26-08D303A4C7EA',EnName:'Somthing','Name':'服务器列表',Value:'',Parent:'0859f95a-8711-ca5b-cb4d-08d288618c0e'},{'Id':'15604CE2-AF1B-CAD9-8C26-08D303A4C7EA',EnName:'Plugin','Name':'标签',Value:'',Parent:'d49276a3-4885-c5db-643b-08d2b800d641'}];">
+            <div style="height: 500px; overflow: hidden;">
+                <div class="row" style="margin: 5px;">
+                    <div class="col-md-5" ng-show="model.DataState.Value==='Add'" style="padding: 0px; padding-right: 5px;">
+                        <Panel>
+                            <phead>
+                                组织机构
+                            </phead>
+                            <pbody style="height: 450px; overflow: auto;">
+                                <Deptment id="GroupUser" check="true"></Deptment>
+                            </pbody>
+                        </Panel>
+                    </div>
+                    <div class="{{class}}" style="padding: 0px 5px;">
+                        <Panel>
+                            <phead>
+                                人员基本信息
+                            </phead>
+                            <pbody style="height: 450px; overflow: auto;">
+                                <FormRow Label="手机号" colspan='3' Required="true">
+                                    <TextBox colspan='3' ngmodel="model.Key" Required validtype="Phone" maxlength="11"></TextBox>
+                                </FormRow>
+                                <FormRow Label="姓名" colspan='3' Required="true">
+                                    <TextBox ngmodel="model.GroupUserName" Required maxlength="100"></TextBox>
+                                </FormRow>
+                                <FormRow colspan='3' Label="性别" Required>
+                                    <DropDownList placeholder='请选择...' search='true' Display='{{$select.selected.GroupUserGenderName}}' ngmodel='model.GroupUserGender' repeat="option.GroupUserGender as option in SexType" filter="GroupUserGenderName">
+                                        <div ng-bind-html="option.GroupUserGenderName | highlight: $select.search"></div>
+                                    </DropDownList>
+                                </FormRow>
+                                <FormRow Label="Vip邀请码" colspan='3' Required="true" ng-if="model.DataState.Value==='Add'">
+                                    <TextBox ngmodel="model.VipCode" Required validtype="EnglishAndChineseAndNumAndUnderline" maxlength="20"></TextBox>
+                                </FormRow>
+                                <FormRow Label="排序号" colspan='3' Required>
+                                    <TextBox ngmodel="model.OrderIndex" Required validtype="Number" maxlength="8"></TextBox>
+                                </FormRow>
+
+                                <!--<FormRow Label="插件" colspan='3' Required>
+                                    <selecttree ngmodel="model.Plugin" Required tree="Plugin" multiSelect="true" cp="true"></selecttree>
+                                </FormRow>
+                                <FormRow Label="公司事务" colspan='3' Required>
+                                    <selecttree ngmodel="model.Something" Required type="dic" multiselect="false" tree="Somthing" globalSingle="true" parent="3e17fd39-b62f-c238-4feb-08d2c8a462b7"></selecttree>
+                                </FormRow>
+                                <div ng-repeat="item in ColumnTags" ng-if="model.DataState.Value==='Add'">
+                                    <FormRow Label="{{item.Name}}" colspan='3' Required>
+                                        <selecttree ngmodel="item.Value" Required type="dic" multiSelect="true" tree="item{{$index}}" isCol="true" parent="{{item.Parent}}"></selecttree>
+                                    </FormRow>
+                                </div>-->
+                                <!--<div ng-repeat="item in model.ColumnTags" ng-if="model.DataState.Value==='Modify'">
+                                    <FormRow Label="{{item.Name}}" colspan='3' Required>
+                                        <selecttree ngmodel="item.Value" Required type="dic" tree="item{{$index}}" isCol="true" parent="{{item.Parent}}"></selecttree>
+                                    </FormRow>
+                                </div>-->
+                            </pbody>
+                        </Panel>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </pbody>
+    <pfoot>
+        <ButtonBar checkBox="true"></ButtonBar>
+    </pfoot>
+</Panel>

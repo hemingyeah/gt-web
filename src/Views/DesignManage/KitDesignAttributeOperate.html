@@ -1,0 +1,52 @@
+﻿<Panel Dialog>
+	<phead>属性编辑</phead>
+	<pbody>
+	<form name="form" gtform>
+		<RowTextBox Label="英文名称" ngmodel="model.DisplayName" placeholder="英文名称" colspan='2' Required></RowTextBox>
+		<RowTextBox Label="中文名称" ngmodel="model.ChineseName" placeholder="中文名称" colspan='2' Required></RowTextBox>
+		<RowTextBox Label="属性描述" ngmodel="model.Description" placeholder="描述" colspan='2' Required></RowTextBox>
+		<FormRow colspan='2' Label="属性类别" >
+			<DropDown ngmodel="model.Category" placeholder='请选择属性所属类别' Display='{{$select.selected.DisplayName}}' repeat="Category.Code as Category in DropDownListData.Categories" filter="DisplayName">
+				<div ng-bind-html="Category.DisplayName | highlight: $select.search"></div>
+			</DropDown>
+		</FormRow>
+		<FormRow colspan='2' Label="是否为必要字段" >
+			<Switch ngmodel="model.IsRequired" ></Switch>
+		</FormRow>
+		<FormRow colspan='2' Label="是否为列" ng-show="Design.DesignType === 1">
+			<Switch ngmodel="model.IsCol" ></Switch>
+		</FormRow>
+		<FormRow colspan='2' Label="数据类型" ng-if='Custom'>
+			<DropDown ngmodel="model.Type" placeholder='请选择数据类型' Display='{{$select.selected.DisplayName}}' repeat="Type.Code as Type in DropDownListData.Types" filter="DisplayName">
+				<div ng-bind-html="Type.DisplayName | highlight: $select.search"></div>
+			</DropDown>
+		</FormRow>
+		<FormRow colspan='2' Label="数据类型值" ng-if='HasType === 0'>
+			<DropDown ngmodel="model.TypeValue" placeholder='请选择数据类型值' Display='{{$select.selected.DisplayName}}' repeat="TypeValue.Id as TypeValue in TypeValues" filter="DisplayName">
+				<div ng-bind-html="TypeValue.DisplayName | highlight: $select.search"></div>
+			</DropDown>
+		</FormRow>
+		<RowTextBox Label="数据类型值" placeholder="请填写对应的模型属性ID/字典ID" ng-if="HasType === 1" ngmodel="model.TypeValue" colspan='2' Required></RowTextBox>
+		<FormRow colspan='2' Label="数据类型值" ng-if='HasType === 2'>
+			<DropDown ngmodel="model.TypeValue" placeholder='请选择数据类型值' Display='{{$select.selected.DisplayName}}' repeat="TypeValue.Id as TypeValue in TypeValues" filter="DisplayName">
+				<div ng-bind-html="TypeValue.DisplayName | highlight: $select.search"></div>
+			</DropDown>
+		</FormRow>
+		<RowTextBox Label="长度" placeholder="数据长度，Unicode编码最大长度为8000，非Unicode编码最大长度为4000" ngmodel="model.Length" colspan='2' ng-if="Haslength" Required></RowTextBox>
+		<FormRow colspan='2' Label="是否Unicode编码" ng-if="Haslength">
+			<Switch ngmodel="model.IsUnicode" ></Switch>
+		</FormRow>
+		<FormRow colspan='2' Label="数据关系" ng-if="Custom && HasType != 3">
+			<DropDown ngmodel="model.RelationType" placeholder='请选择数据关系' Display='{{$select.selected.DisplayName}}' repeat="RelationType.Code as RelationType in DropDownListData.RelationTypes" filter="DisplayName">
+				<div ng-bind-html="RelationType.DisplayName | highlight: $select.search"></div>
+			</DropDown>
+		</FormRow>
+		<FormRow colspan='2' Label='请选择外键列' ng-if="HasColumn && HasType == 2" >
+			<GTGrid ItemCode="row" ColumnCode="SelectDisplayAttributes" ListCode="Design.DesignCustomAttributes" select index></GTGrid>
+		</FormRow>
+	</form>
+	</pbody>
+	<pfoot>
+		<ButtonBar float='right'></ButtonBar>
+	</pfoot>
+</Panel>

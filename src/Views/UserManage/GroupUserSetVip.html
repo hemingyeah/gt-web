@@ -1,0 +1,21 @@
+<Panel gtform ng-init="app.Layout = false;" Dialog>
+    <phead>设置Vip码</phead>
+    <pbody>
+        <div>
+            <form gtform name='form'>
+                <FormRow colspan='3' Label="Vip邀请码：">
+                    <TextBox ngmodel="model.ValidCode" maxlength="20" Required></TextBox>
+                </FormRow>
+            </form>
+        </div>
+        <div style="max-height: 400px; height: 200px;">
+            <dataGrid agGrid="gridOptions"></dataGrid>
+        </div>
+    </pbody>
+    <pfoot>
+        <div class="row">
+            <div class="col-md-3 h4" style="padding: 10px;">共[<a>{{model.data.length}}</a>]条数据</div>
+            <div class="col-md-9"><ButtonBar></ButtonBar></div>
+        </div>
+    </pfoot>
+</Panel>

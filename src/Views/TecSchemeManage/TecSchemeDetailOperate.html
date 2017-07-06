@@ -1,0 +1,128 @@
+<Panel gtform Dialog>
+    <phead>方案首页编辑</phead>
+    <pbody>
+        <style>
+        .GT-Must {
+            text-align: left !important;
+            padding: 0px;
+        }
+        </style>
+        <form name='form' gtform>
+            <div>
+                <div class="col-md-4">
+                    <RowTextBox colspan='12' Label="文档版本" ngmodel="model.Version" morerow='true' margin="0 0 10px 0" padding="0 5px" placeholder="文档版本..." required></RowTextBox>
+                </div>
+                <div class="col-md-4">
+                    <Form-Row colspan='12' Label="编写人" margin="0 0 10px 0" padding="0 5px">
+                        <DropDown ngmodel="model.WriterId" refresh='refreshUser($select.search)' placeholder='请选择...' Display='{{$select.selected.AccountName}}' repeat="option.Id as option in Person" filter="AccountName">
+                            <div ng-bind-html="option.AccountName | highlight: $select.search"></div>
+                        </DropDown>
+                    </Form-Row>
+                </div>
+                <div class="form-group col-md-4">
+                    <label class="control-label" style="margin-bottom: 10px;">报告时间</label>
+                    <p class="input-group" class="col-lg-12">
+                        <input type="text" class="form-control" datepicker-popup="{{format}}" ng-model="model.SubmitDate" is-open="opened" min-date="" max-date="" datepicker-options="dateOptions" date-disabled="disabled(date, mode)" ng-required="true" close-text="关闭" />
+                        <span class="input-group-btn">
+                  <button type="button" class="btn btn-default" ng-click="open($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+                </span>
+                    </p>
+                </div>
+            </div>
+            <div>
+                <div class="col-md-12">
+                    <RowTextBox colspan='12' Label="解决什么问题" ngmodel="model.Description" morerow='true' margin="0 0 10px 0" padding="0 5px" placeholder="简述谁有问题，解决什么问题..." required></RowTextBox>
+                </div>
+            </div>
+            <div>
+                <div class="col-md-12">
+                    <RowTextBox colspan='12' Label="对标对象" ngmodel="model.Reference" morerow='true' margin="0 0 10px 0" padding="0 5px" placeholder="请填写对标对象..." required></RowTextBox>
+                </div>
+            </div>
+            <div>
+                <div class="col-md-12">
+                    <Form-Row Label="优点" margin="0 0 10px 0" padding="0 5px" required>
+                        <textarea class="form-control" ng-model="model.ReferenceAdvantage" placeholder="请填写对标对象的优点..." required></textarea>
+                    </Form-Row>
+                </div>
+            </div>
+            <div>
+                <div class="col-md-12">
+                    <Form-Row Label="缺点" margin="0 0 10px 0" padding="0 5px" required>
+                        <textarea class="form-control" ng-model="model.ReferenceDisadvantage" placeholder="请填写对标对象的缺点..." required></textarea>
+                    </Form-Row>
+                </div>
+            </div>
+            <div>
+                <div class="col-md-12">
+                    <Form-Row Label="本方案功能描述" margin="0 0 10px 0" padding="0 5px" required>
+                        <textarea class="form-control" ng-model="model.Function" placeholder="请描述本方案的功能..." required></textarea>
+                    </Form-Row>
+                </div>
+            </div>
+            <div>
+                <div class="col-md-12">
+                    <Form-Row Label="本方案特点" margin="0 0 10px 0" padding="0 5px" required>
+                        <textarea class="form-control" ng-model="model.Feature" placeholder="请描述本方案的特点..." required></textarea>
+                    </Form-Row>
+                </div>
+            </div>
+            <div>
+                <div class="col-md-12">
+                    <RowTextBox colspan='12' Label="技术委员会意见" ngmodel="model.TechOption" morerow='true' margin="0 0 10px 0" padding="0 5px" placeholder="技术委员会意见..."></RowTextBox>
+                </div>
+            </div>
+            <div>
+                <div class="col-md-12">
+                    <RowTextBox colspan='12' Label="公司意见" ngmodel="model.CompanyOption" morerow='true' margin="0 0 10px 0" padding="0 5px" placeholder="公司意见..."></RowTextBox>
+                </div>
+            </div>
+        </form>
+    </pbody>
+    <pfoot>
+        <Panel>
+            <phead>上传附件</phead>
+            <pbody>
+                <div class="col-md-12" style="margin:0 0 15px 0">
+                    <a href="javascript:;" class="btn btn-info" style="position: relative;overflow: hidden;text-indent: 0;">
+                        选择文件
+                        <input type="file" name="file" id="files" multiple="true" style="position: absolute;font-size: 100px;right: 0;top: 0;opacity:0;">
+                    </a>
+                </div>
+                <table class="table bg-white-only b-a" style="margin-top: 10px;">
+                    <thead>
+                        <tr>
+                            <th width="30%">文件名</th>
+                            <th>大小</th>
+                            <th width="20%">进度</th>
+                            <th>状态</th>
+                            <th>操作</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="item in CompanyAttach">
+                            <td><strong>{{ item.FileName }}</strong></td>
+                            <td>{{ item.Size/1024/1024|number:2 }} MB</td>
+                            <td>
+                                <progressbar max="100" value="item.progress" type="info" class="progress-sm m-t-sm" ng-init="item.progress=0"><span style="white-space:nowrap;">{{item.progress}} / 100</span></progressbar>
+                            </td>
+                            <td>
+                                <span ng-show="item.state" class="text-success">上传完成</span>
+                                <span ng-show="!item.state" class="text-warning">未上传</span>
+                            </td>
+                            <td nowrap>
+                                <button type="button" class="btn btn-default btn-sm" ng-click="event.Upload(item)" ng-disabled="item.state">
+                                    上传
+                                </button>
+                                <button type="button" class="btn btn-default btn-sm" ng-click="event.Delete(item)">
+                                    删除
+                                </button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </pbody>
+        </Panel>
+        <ButtonBar float="right"></ButtonBar>
+    </pfoot>
+</Panel>

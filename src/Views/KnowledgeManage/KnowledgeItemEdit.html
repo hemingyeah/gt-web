@@ -1,0 +1,23 @@
+<panel Dialog>
+    <phead> <span ng-if='model.Id'>编辑[资讯]</span> <span ng-if='!model.Id'>新增[资讯]</span></phead>
+    <pbody>
+        <form gtform name='form'>
+            <FormRow colspan="2" Label="资讯名称" required="true">
+                <TextBox ngmodel="model.Name" required="true"></TextBox>
+            </FormRow>
+            <FormRow colspan="2" Label="资讯来源" required="true">
+                <TextBox ngmodel="model.Source" required="true"></TextBox>
+            </FormRow>
+            <FormRow colspan="2" Label="选择背景图片" required="true">
+                <img src="{{imgSrc}}" />
+                <FileInputBtn value="选择图片"></FileInputBtn>
+            </FormRow>
+            <FormRow colspan="2" Label="资讯内容" required="true">
+                <RichTextBox value="资讯内容" ngmodel="Content" richtextid="richtext" uploadtempid="upload" required="true"></RichTextBox>
+            </FormRow>
+        </form>
+    </pbody>
+    <pfoot>
+        <ButtonBar></ButtonBar>
+    </pfoot>
+</panel>

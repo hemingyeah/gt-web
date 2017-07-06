@@ -1,0 +1,16 @@
+<Panel gtform Dialog>
+	<phead>基础标签</phead>
+	<pbody>
+	    <FormRow colspan="2" Label="选择标签">
+	        <DropDown multiple ngmodel="model.Operations" placeholder='请选择...' Display='{{$item.Name}}' repeat="option in PersonalTag" filter="Name">
+	            <div ng-bind-html="option.Name | highlight: $select.search"></div>
+	        </DropDown>
+	    </FormRow>
+        <div style="max-height: 400px; height: 200px;">
+            <dataGrid agGrid="gridOptions"></dataGrid>
+        </div>
+	</pbody>
+	<pfoot>
+		<ButtonBar></ButtonBar>
+	</pfoot>
+</Panel>

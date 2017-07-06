@@ -1,0 +1,86 @@
+<Layout ng-init="app.Layout = true;">
+    <Item Label="插件" width="sm">
+        <Search ngmodel='search' placeholder='过滤'></Search>
+        <GTList ListCode="Plugins | filter:search:{'DisplayName':search}" ItemCode="row">
+            <a href class="list-group-item" ng-bind="row.DisplayName" title='{{row.DisplayName}}' ng-class="{active:Sel_Plugin== row}" ng-click="event.SelectedItem(row);"></a>
+        </GTList>
+    </Item>
+    <Item Label="模型" width="400" event="TreeEvent">
+        <div ng-repeat="Plugin in Plugins" ng-if="Sel_Plugin === Plugin">
+            <Panel ng-repeat="Model in ModelList" expand edit record add style="margin-bottom: 10px;">
+                <phead>{{Model.CnName}}</phead>
+                <pbody style="padding: 0px;">
+                    <GTList ListCode="Model.ModelRelations" ItemCode="row">
+                        <div href class="list-group-item" ng-class="{active:SelectedItem === row.Design}" title='{{row.DisplayName}}' ng-click="event.GetDesignRelatives(row.Design, $event);">
+                            <div ng-bind="row.Design.ChineseName" style="text-overflow:ellipsis; padding-right:35px; overflow:hidden;"></div>
+                            <div class="ItemButton">
+                                <i class="icon-gt-edit" ng-click="event.EditDesign(row, Model.Id, $event)"></i>
+                                <i class="icon-gt-delete" ng-click="event.DeleteDesign(row, $event)"></i>
+                                <!-- <i class="Btn btn-add" ng-click="event.DeleteRelation(row, Model.Id, $event)"></i> -->
+                            </div>
+                        </div>
+                    </GTList>
+                </pbody>
+            </Panel>
+        </div>
+    </Item>
+    <Item Label="{{Sel_Design.DisplayName}}------模型相关">
+        <div class="wrapper" style="padding:15px 0; text-align:right;">
+            <div class="btn-group dropdown" dropdown ng-if='Sel_Design && Sel_Plugin'>
+                <button class="btn btn-default btn-md" dropdown-toggle>
+                    操作
+                    <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu">
+                    <li ng-click="CustomEvent.Add()">
+                        <a><i class="icon-gt-attrs"></i>属性</a>
+                    </li>
+                    <li ng-click="KeyEvent.Add()">
+                        <a><i class="icon-gt-key"></i>主键</a>
+                    </li>
+                    <li ng-click="IndexEvent.Add()">
+                        <a><i class="icon-gt-index"></i>索引</a>
+                    </li>
+                    <li ng-click="event.CreateSolution()" ng-if='Sel_Design'>
+                        <a><i class="icon-gt-createSolution"></i>创建解决方案</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- <button class="btn btn-info btn-sm" ng-click='event.CreateSolution()' ng-if='Sel_Design'>创建解决方案</button> -->
+        </div>
+        <div ng-repeat="Plugin in Plugins" ng-if="Sel_Plugin === Plugin">
+            <div ng-if="SelectedItem">
+                <Panel ng-if="Design.HasCustomAttribute">
+                    <phead>自定义属性</phead>
+                    <pbody style="padding: 0;">
+                        <GTGrid ItemCode="row" event="CustomEvent" ColumnCode="CustomAttributes" ListCode="Design.DesignCustomAttributes" edit></GTGrid>
+                    </pbody>
+                </Panel>
+                <Panel ng-if="Design.HasCharacteristicAttribute">
+                    <phead>特征属性</phead>
+                    <pbody style="padding: 0;">
+                        <GTGrid ItemCode="row" event="CustomEvent" ColumnCode="CharacteristicAttributes" ListCode="Design.DesignCharacteristicAttributes" edit></GTGrid>
+                    </pbody>
+                </Panel>
+                <Panel ng-if="Design.HasKey">
+                    <phead>主键</phead>
+                    <pbody style="padding: 0;">
+                        <GTGrid ItemCode="row" event="KeyEvent" ColumnCode="Keys" ListCode="Design.DesignKeys" edit></GTGrid>
+                    </pbody>
+                </Panel>
+                <Panel ng-if="Design.HasIndex">
+                    <phead>索引</phead>
+                    <pbody style="padding: 0;">
+                        <GTGrid ItemCode="row" event="IndexEvent" ColumnCode="Indexes" ListCode="Design.DesignIndexes" edit></GTGrid>
+                    </pbody>
+                </Panel>
+                <Panel expand hidebody>
+                    <phead>默认属性</phead>
+                    <pbody style="padding: 0;">
+                        <GTGrid ItemCode="row" ColumnCode="CustomAttributes" ListCode="Design.DesignDefaultAttributes"></GTGrid>
+                    </pbody>
+                </Panel>
+            </div>
+        </div>
+    </Item>
+</Layout>

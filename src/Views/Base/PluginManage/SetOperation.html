@@ -1,0 +1,18 @@
+	<Panel Dialog>
+		<phead>设置功能权限</phead>
+		<pbody style='padding:0;'>
+			<Layout style='min-height:450px;'>
+	            <Item Label="平台" width='sm'>
+	                <GTList ListCode='MenuType' ItemCode="row">
+	                    <a href class="list-group-item" ng-bind="row.PlatformName" ng-class="{active:Sel_MenuType== row}" ng-click="event.SelectMenuType(row);"></a>
+	                </GTList>
+	            </Item>
+	            <Item Label="功能权限">
+					<OperationPower id='OperationPower' ng-show='Sel_MenuType.PlatformId!==undefined'></OperationPower>
+	            </Item>
+			</Layout>
+		</pbody>
+		<pfoot>
+			<ButtonBar></ButtonBar>
+		</pfoot>
+	</Panel>

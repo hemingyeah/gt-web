@@ -1,0 +1,25 @@
+<panel Dialog>
+    <phead> <span ng-if='model.Id'>编辑[]</span> <span ng-if='!model.Id'>新增[]</span></phead>
+    <pbody ng-init="ng-init=model.ExtColumns=${{column}}">
+        <form gtform name='form'>
+            <FormRow colspan="2" Label="轮播广告名称" required="true">
+                <TextBox ngmodel="model.Name" placeHolder="请输轮播广告名称入" validType="Empty" ngDisabled="false" maxLength="100" minLength="0" required="true"></TextBox>
+            </FormRow>
+            <FormRow colspan="2" Label="广告指向链接" required="true">
+                <TextBox ngmodel="model.Url" placeHolder="请输入广告指向链接" validType="Empty" ngDisabled="false" maxLength="100" minLength="0" required="true"></TextBox>
+            </FormRow>
+            <FormRow colspan="2" Label="广告描述" required="true">
+                <TextBox ngmodel="model.Description" placeHolder="请输入广告描述" validType="Empty" ngDisabled="false" maxLength="100" minLength="0" required="true"></TextBox>
+            </FormRow>
+            <FormRow colspan="2" Label="广告的应用类型">
+                <SelectTree ngModel="model.UseTypeId" placeHolder="请选择" displayName="model.UserTypeName" checkBox="true" tree="UseType" parent="47B43572-77C2-C33C-1B90-08D30CD9ABE2" type="dic" cp="false" cc="false" selectMode="true" multiSelect="false" globalSingle="true"></SelectTree>
+            </FormRow>
+            <FormRow colspan="2" Label="上传广告图片">
+                <FileInputBtn value="选择图片"></FileInputBtn>
+            </FormRow>
+        </form>
+    </pbody>
+    <pfoot>
+        <ButtonBar></ButtonBar>
+    </pfoot>
+</panel>

@@ -1,0 +1,21 @@
+<Panel Dialog>
+	<phead>选择个人帐号</phead>
+	<pbody style='padding:0px; '>
+		<Layout style='min-height:700px;'>
+			<Item Label="人员群组" width='sm'>
+				<PersonalAccount id="GroupUserTree" ></PersonalAccount>
+			</Item>
+			<Item Label="个人帐号">
+				<div class='form-horizontal'>
+					<FormRow Label="已选择帐号">
+						{{ SelectData | ReturnListColumn:"AccountName"}}
+					</FormRow>
+				</div>
+				<GTGrid ItemCode="row" ListCode="data" ColumnCode="PersonalAccountManage" PageChange="event.LoadData()" PageData='Page' select index></GTGrid>
+			</Item>
+		</Layout>
+	</pbody>
+	<pfoot>
+		<ButtonBar></ButtonBar>
+	</pfoot>
+</Panel>

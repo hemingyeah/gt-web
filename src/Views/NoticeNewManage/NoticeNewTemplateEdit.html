@@ -1,0 +1,23 @@
+
+<panel Dialog>
+    <phead> <span ng-if='model.Id'>编辑[通知模板名称]</span> <span ng-if='!model.Id'>新增[通知模板名称]</span></phead>
+    <pbody>
+        <form gtform name='form'>
+            <FormRow colspan="2" Label="通知模板名称" required="true">
+                <TextBox ngmodel="model.Name" maxlength="200" required="true"></TextBox>
+            </FormRow>
+            <FormRow colspan="2" Label="应用类型" required="true">
+                <DropDownTreeList ngmodel="model.FkUseTypeId" ParentId="75ae673a-8a08-c3d7-ed8b-08d31806d1af" model="model" configtree="event.ConfigTree()" DisplayModel="model.UseTypeName" required="true"></DropDownTreeList>
+            </FormRow>
+            <FormRow colspan="2" Label="通知模板描述" required="true">
+                <TextBox ngmodel="model.Description" maxlength="4000" required="true"></TextBox>
+            </FormRow>
+            <FormRow colspan="2" Label="通知模板内容" required="true">
+                <RichTextBox value="通知模板内容" ngmodel="Context" richtextid="richtext" uploadtempid="upload" required="true"></RichTextBox>
+            </FormRow>
+        </form>
+    </pbody>
+    <pfoot>
+        <ButtonBar></ButtonBar>
+    </pfoot>
+</panel>

@@ -1,0 +1,22 @@
+<div>
+	<div class="container">
+		<div class="TopBar row">
+			<div class="col-lg-2 col-md-2 col-sm-2 col-xs-12"><img ng-src="{{LogoImgUrl}}" alt="Logo"></div>
+			<div class="col-lg-6 col-md-3 col-sm-4 col-xs-12"></div>
+			<div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
+				<div class="input-group">
+					<input type="text" class="form-control" id="exampleInputAmount" placeholder="请输入关键字">
+					<div class="input-group-addon search"><img src="/Resources/images/Home/Search.png" alt=""></div>
+				</div>
+			</div>
+			<div class="col-lg-1 col-md-3 col-sm-2 col-xs-12"><a>帮助中心</a></div>
+		</div>
+	</div>
+	<div class="GT-Menu">
+		<div class="container GT-Menu-ul">
+			<div class="GT-Menu-li item_url" ng-repeat="row in list">
+				<a ng-href="{{row.Url}}" ng-bind="row.MenuName"></a>
+			</div>
+		</div>
+	</div>
+</div>

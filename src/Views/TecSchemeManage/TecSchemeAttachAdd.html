@@ -1,0 +1,13 @@
+<Panel gtform ng-init="app.Layout = false;" Dialog>
+	<phead>选择附件类型</phead>
+	<pbody>
+		<FormRow colspan='2' Label="附件类型">
+			<DropDown ngmodel="model.Type" placeholder='请选择...' Display='{{$select.selected.DisplayName}}' repeat="option in Category" filter="DisplayName">
+            	<div ng-bind-html="option.DisplayName | highlight: $select.search"></div>
+        	</DropDown>
+		</FormRow>
+	</pbody>
+	<pfoot>
+		<ButtonBar float="right"></ButtonBar>
+	</pfoot>
+</Panel>

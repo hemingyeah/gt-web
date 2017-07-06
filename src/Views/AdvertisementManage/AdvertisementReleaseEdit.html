@@ -1,0 +1,25 @@
+<panel Dialog>
+    <phead> <span ng-if='model.Id'>编辑[通知标题]</span> <span ng-if='!model.Id'>新增[通知标题]</span></phead>
+    <pbody>
+        <form gtform name='form'>
+            <FormRow colspan="2" Label="通知标题" required="true">
+                <TextBox ngmodel="model.Title" maxlength="200" required="true"></TextBox>
+            </FormRow>
+            <FormRow colspan="2" Label="通知模板Id" required="true">
+                <input type="hidden" ng-model="model.FkNoticeTemplateId.Id" required="true" />
+                <DropDown ngmodel="model.FkNoticeTemplateId" repeat="option in model.Dictionay.FkNoticeTemplateId" required="true">
+                    <div ng-bind-html="option.DisplayName | highlight: $select.search" required="true"></div>
+                </DropDown>
+            </FormRow>
+            <FormRow colspan="2" Label="应用类型" required="true">
+                <DropDownTreeList ngmodel="model.FkUseTypeId" model="model" ParentId="863bbdad-b920-c402-e74c-08d318096d93" configtree="event.ConfigTree()" DisplayModel="model.NoticeLevelName" required="true"></DropDownTreeList>
+            </FormRow>
+            <FormRow colspan="2" Label="通知内容" required="true">
+                <RichTextBox value="通知内容" ngmodel="Context" richtextid="richtext" uploadtempid="upload" required="true"></RichTextBox>
+            </FormRow>
+        </form>
+    </pbody>
+    <pfoot>
+        <ButtonBar></ButtonBar>
+    </pfoot>
+</panel>

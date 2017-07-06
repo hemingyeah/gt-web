@@ -1,0 +1,13 @@
+<Panel gtform Dialog>
+	<phead>主键编辑</phead>
+	<pbody>
+		<RowTextBox Label="名称" placeholder="名称" ngmodel="model.Name" colspan='2' Required></RowTextBox>
+		<RowTextBox Label="描述" placeholder="描述" ngmodel="model.Description" colspan='2' Required></RowTextBox>
+		<FormRow colspan='2' Label='请选择主键列' >
+			<GTGrid ItemCode="row" ColumnCode="SelectDisplayAttributes" ListCode="Design.DesignCustomAttributes" select index></GTGrid>
+		</FormRow>
+	</pbody>
+	<pfoot>
+		<ButtonBar float='right'></ButtonBar>
+	</pfoot>
+</Panel>

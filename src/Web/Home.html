@@ -1,0 +1,11 @@
+<carousel interval="5000" set-ng-animate="false">
+	<slide ng-repeat="slide in ImageList" active="slide.active">
+		<img ng-src="{{slide.ImageUrl}}" class="img-full">	
+		<div class="carousel-caption"></div>
+	</slide>
+</carousel>
+<MessageBarModel></MessageBarModel>
+<InformationModel></InformationModel>
+<KnowledgeModel></KnowledgeModel>
+<ChildSystemModel></ChildSystemModel>
+<FootModel></FootModel>

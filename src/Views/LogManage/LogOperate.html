@@ -1,0 +1,16 @@
+<Panel gtform Dialog>
+	<phead>服务器编辑</phead>
+	<pbody>
+		<RowTextBox Label="Url地址" placeholder="" ngmodel="model.DisplayName" colspan='2' Required></RowTextBox>
+		<RowTextBox Label="中文名称" placeholder="中文名称" ngmodel="model.ChineseName" colspan='2' Required></RowTextBox>
+		<RowTextBox Label="模型描述" placeholder="描述" ngmodel="model.Description" colspan='2' Required></RowTextBox>
+		<FormRow colspan='2' Label="所属插件" >
+			<DropDown ngmodel="model.PluginId" placeholder='请选择所属插件' Display='{{$select.selected.DisplayName}}' repeat="Plugin.Id as Plugin in Plugins" filter="DisplayName">
+				<div ng-bind-html="Plugin.DisplayName | highlight: $select.search"></div>
+			</DropDown>
+		</FormRow>
+	</pbody>
+	<pfoot>
+		<ButtonBar float='right'></ButtonBar>
+	</pfoot>
+</Panel>

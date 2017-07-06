@@ -1,0 +1,411 @@
+﻿[
+  {
+    "Code": "TextBox",
+    "Description": "文框本",
+    "Attributes": [
+      {
+        "Code": "ngModel",
+        "Description": "绑定字段名称",
+        "DataType": "string"
+      },
+      {
+        "Code": "placeHolder",
+        "Description": "提示文字",
+        "DataType": "string",
+        "Value": "请输入"
+      },
+      {
+        "Code": "required",
+        "Description": "是否必须",
+        "DataType": "bool",
+        "Value": false
+      },
+      {
+        "Code": "validType",
+        "Description": "验证类型",
+        "DataType": "enum",
+        "EnumValue": [
+          {
+            "Code": "默认验证",
+            "Value": "Empty"
+          },
+          {
+            "Code": "手机号",
+            "Value": "Phone"
+          },
+          {
+            "Code": "英文",
+            "Value": "English"
+          },
+          {
+            "Code": "身份证号",
+            "Value": "IdCardNo"
+          },
+          {
+            "Code": "IP地址",
+            "Value": "IpNo"
+          },
+          {
+            "Code": "英文和数字",
+            "Value": "EnglishAndNum"
+          },
+          {
+            "Code": "英文|数字|下划线",
+            "Value": "EnglishAndNumAndUnderline"
+          },
+          {
+            "Code": "中|英文|下划线",
+            "Value": "EnglishAndChineseAndNumAndUnderline"
+          }
+        ],
+        "Value": "Empty"
+      },
+      {
+        "Code": "ngDisabled",
+        "Description": "是否可用",
+        "DataType": "bool",
+        "Value": false
+      },
+      {
+        "Code": "maxLength",
+        "Description": "最大长度",
+        "DataType": "int",
+        "Value": 100
+      },
+      {
+        "Code": "minLength",
+        "Description": "最小长度",
+        "DataType": "int",
+        "Value": 0
+      }
+    ]
+  },
+  {
+    "Code": "CheckBox",
+    "Description": "复选框",
+    "Attributes": [
+      {
+        "Code": "ngModel",
+        "Description": "绑定字段名称",
+        "DataType": "string",
+        "Value": ""
+      },
+      {
+        "Code": "label",
+        "Description": "提示文字",
+        "DataType": "string",
+        "Value": ""
+      },
+      {
+        "Code": "required",
+        "Description": "是否必须",
+        "DataType": "bool",
+        "Value": true
+      },
+      {
+        "Code": "ngDisabled",
+        "Description": "是否可用",
+        "DataType": "bool",
+        "Value": false
+      }
+    ]
+  },
+  {
+    "Code": "Radio",
+    "Description": "单框选",
+    "Attributes": [
+      {
+        "Code": "ngModel",
+        "Description": "绑定字段名称",
+        "DataType": "string",
+        "Value": ""
+      },
+      {
+        "Code": "label",
+        "Description": "提示文字",
+        "DataType": "string",
+        "Value": ""
+      },
+      {
+        "Code": "required",
+        "Description": "是否必须",
+        "DataType": "bool",
+        "Value": true
+      },
+      {
+        "Code": "ngDisabled",
+        "Description": "是否可用",
+        "DataType": "bool",
+        "Value": false
+      }
+    ]
+  },
+  {
+    "Code": "Switch",
+    "Description": "开关",
+    "Attributes": [
+      {
+        "Code": "ngModel",
+        "Description": "绑定字段名称",
+        "DataType": "string"
+      }
+    ]
+  },
+  {
+    "Code": "Number",
+    "Description": "数字框",
+    "Attributes": [
+      {
+        "Code": "ngModel",
+        "Description": "绑定字段名称",
+        "DataType": "string"
+      },
+      {
+        "Code": "decimals",
+        "Description": "浮点数",
+        "DataType": "int",
+        "Value": 0
+      },
+      {
+        "Code": "ngDisabled",
+        "Description": "是否可用",
+        "DataType": "bool",
+        "Value": false
+      },
+      {
+        "Code": "rangeMax",
+        "Description": "最大值",
+        "DataType": "int",
+        "Value": 100
+      },
+      {
+        "Code": "rangeMin",
+        "Description": "最小值",
+        "DataType": "int",
+        "Value": 0
+      },
+      {
+        "Code": "buttonStyle",
+        "Description": "按钮样式",
+        "DataType": "enum",
+        "EnumValue": [
+          {
+            "Code": "上下模式",
+            "Value": "top"
+          },
+          {
+            "Code": "左右模式",
+            "Value": "left"
+          }
+        ],
+        "Value": "left"
+      },
+      {
+        "Code": "typeName",
+        "Description": "单位显示内容",
+        "DataType": "string"
+      },
+      {
+        "Code": "type",
+        "Description": "单位显示位置",
+        "DataType": "enum",
+        "EnumValue": [
+          {
+            "Code": "右侧",
+            "Value": "r"
+          },
+          {
+            "Code": "左侧",
+            "Value": "l"
+          }
+        ],
+        "Value": "r"
+      }
+    ]
+  },
+  {
+    "Code": "File",
+    "Description": "文件上传",
+    "Attributes": [ ]
+  },
+  {
+    "Code": "DateTimePicker",
+    "Description": "日期控件",
+    "Attributes": [  {
+        "Code": "ngModel",
+        "Description": "绑定字段名称",
+        "DataType": "string"
+      } ,{
+        "Code": "minDate",
+        "Description": "最小时间",
+        "DataType": "dateTime",
+        "Value": "1900-01-01"
+      }, {
+        "Code": "maxDate",
+        "Description": "最大时间",
+        "DataType": "dateTime",
+        "Value": "2099-01-01"
+      }]
+  },
+  {
+    "Code": "RichTextBox",
+    "Description": "HTML编辑器",
+    "Attributes": [ {
+        "Code": "richtextId",
+        "Description": "对象Id",
+        "DataType": "string"
+      }]
+  },
+  {
+    "Code": "DropDownList",
+    "Description": "下拉列表",
+    "Attributes": [
+      {
+        "Code": "ngModel",
+        "Description": "绑定字段名称",
+        "DataType": "string"
+      },
+      {
+        "Code": "placeHolder",
+        "Description": "提示文字",
+        "DataType": "string",
+        "Value": "请输入"
+      },
+      {
+        "Code": "required",
+        "Description": "是否必须",
+        "DataType": "bool",
+        "Value": false
+      },
+      {
+        "Code": "repeat",
+        "Description": "ng-repeat对象",
+        "DataType": "string",
+        "Value": ""
+      },
+      {
+        "Code": "ngDisabled",
+        "Description": "是否可用",
+        "DataType": "bool",
+        "Value": false
+      },
+      {
+        "Code": "search",
+        "Description": "是否启用搜索",
+        "DataType": "bool",
+        "Value": true
+      },
+      {
+        "Code": "multiple",
+        "Description": "是否可以多选",
+        "DataType": "bool",
+        "Value": false
+      },
+      {
+        "Code": "display",
+        "Description": "显示字段名",
+        "DataType": "string",
+        "Value": ""
+      },
+      {
+        "Code": "onselect",
+        "Description": "选择改变事件",
+        "DataType": "string",
+        "Value": ""
+      }
+    ]
+  },
+  {
+    "Code": "SelectTree",
+    "Description": "选择树",
+    "Attributes": [
+      {
+        "Code": "ngModel",
+        "Description": "绑定字段名称",
+        "DataType": "string"
+      },
+      {
+        "Code": "placeHolder",
+        "Description": "提示文字",
+        "DataType": "string",
+        "Value": "请选择"
+      },
+      {
+        "Code": "required",
+        "Description": "是否必须",
+        "DataType": "bool",
+        "Value": false
+      },
+      {
+        "Code": "checkBox",
+        "Description": "是否使用复框选",
+        "DataType": "bool",
+        "Value": true
+      },
+      {
+        "Code": "tree",
+        "Description": "选择树的唯一名称",
+        "DataType": "string",
+        "Value": ""
+      },
+      {
+        "Code": "parent",
+        "Description": "对应父节点",
+        "DataType": "guid",
+        "Value": ""
+      },
+      {
+        "Code": "diplayName",
+        "Description": "显示名称",
+        "DataType": "string",
+        "Value": ""
+      },
+      {
+        "Code": "type",
+        "Description": "选择树对应的下拉组件类型名称",
+        "DataType": "enum",
+        "EnumValue": [
+          {
+            "Code": "组织树",
+            "Value": "deptment"
+          },
+          {
+            "Code": "字典树",
+            "Value": "dic"
+          }
+        ],
+        "Value": "dic"
+      },
+      {
+        "Code": "cp",
+        "Description": "是否级联父，默认不级联multiSelect=true时生效",
+        "DataType": "bool",
+        "Value": false
+      },
+      {
+        "Code": "cc",
+        "Description": "是否级联子，默认不级联multiSelect=true时生效",
+        "DataType": "bool",
+        "Value": false
+      },
+      {
+        "Code": "selectMode",
+        "Description": "true表示选择模式，false表示不可选择",
+        "DataType": "bool",
+        "Value": true
+      },
+      {
+        "Code": "multiSelect",
+        "Description": "是否多选",
+        "DataType": "bool",
+        "Value": true
+      },
+      {
+        "Code": "globalSingle",
+        "Description": "false时，在每一级节点范围内当做一个分组；true 时在整棵树范围内当做一个分组",
+        "DataType": "bool",
+        "Value": false
+      }
+    ]
+  }
+]

@@ -1,0 +1,39 @@
+﻿<panel Dialog>
+    <phead> <span ng-if='model.Id'>编辑[]</span> <span ng-if='!model.Id'>新增[]</span></phead>
+    <pbody >
+        <form gtform name='form'>
+            <FormRow colspan="2" Label="仓库名称" required="true">
+                <TextBox ngmodel="model.Name"  placeHolder="请输入" validType="Empty" ngDisabled="false" maxLength="100" minLength="0" required="true"></TextBox>
+            </FormRow>
+            <FormRow colspan="2" Label="仓库描述" required="true">
+                <TextBox ngmodel="model.Description"  placeHolder="请输入" validType="Empty" ngDisabled="false" maxLength="1000" minLength="0" required="true"></TextBox>
+            </FormRow>
+            <FormRow colspan="2" Label="是否匿名">
+                <Switch ngModel="model.IsAnonymous"></Switch>
+            </FormRow>
+            <FormRow colspan="2" Label="图标">
+                <TextBox ngmodel="model.Logo" placeHolder="请输入" validType="Empty" ngDisabled="false" maxLength="100" minLength="0"></TextBox>
+            </FormRow>
+            <FormRow colspan="2" Label="Git库位置">
+                <TextBox ngmodel="model.Url" placeHolder="请输入" validType="Empty" ngDisabled="false" maxLength="200" minLength="0"></TextBox>
+            </FormRow>
+            <FormRow colspan="2" Label="Git仓库种类Id" required="true">
+                <SelectTree ngModel="model.FkCategoryId"     placeHolder="请选择" checkBox="true" tree="FkCategoryId" parent="c703336d-8f8a-caf4-8851-08d322051676" type="dic" cp="false" cc="false" selectMode="true" multiSelect="false" globalSingle="true" required="true"></SelectTree>
+            </FormRow>
+            <FormRow colspan="2" Label="代码分类Id" required="true"> 
+                <SelectTree ngModel="model.FkRepositoryTypeId" placeHolder="请选择" checkBox="true" tree="FkRepositoryTypeId" parent="db15affb-e950-c437-0313-08d322062603" type="dic" cp="false" cc="false" selectMode="true" multiSelect="false" globalSingle="true" required="true"></SelectTree>
+            </FormRow>
+            <FormRow colspan="2" Label="技术平台Id"  required="true">
+                <SelectTree ngModel="model.FkTechPlatformId"    placeHolder="请选择" checkBox="true" tree="FkTechPlatformId" parent="80e0fc38-0063-c1cd-937b-08d32b7d1eae" type="dic" cp="false" cc="false" selectMode="true" multiSelect="false" globalSingle="true" required="true"></SelectTree>
+            </FormRow>
+
+        </form>
+    </pbody>
+    <pfoot>
+        <ButtonBar></ButtonBar>
+    </pfoot>
+</panel>
+
+ <!--displayName="model.FkRepositoryTypeId"-->
+
+ 

@@ -1,0 +1,37 @@
+<Panel Dialog>
+    <phead>插件标签分配</phead>
+    <pbody style='padding:0;'>
+        <Layout ng-init="app.Layout = true;" style='min-height:700px;'>
+            <Item Label="插件" width='sm'>
+                <GTList ListCode='AppPluginList' ItemCode="row">
+                    <a href class="list-group-item" ng-bind="row.Name" ng-class="{active:Sel_Plugin== row}" ng-click="event.SelectPlugin(row);"></a>
+                </GTList>
+            </Item>
+            <Item Label="模型" width='sm'>
+                <div ng-repeat="Plugin in AppPluginList" ng-if='Sel_Plugin === Plugin'>
+                    <GTList ListCode='Plugin.Designs' ItemCode="row">
+                        <a href class="list-group-item" ng-bind="row.Description" ng-class="{active:Sel_Design== row}" ng-click="event.SelectDesign(row);"></a>
+                    </GTList>
+                </div>
+            </Item>
+            <Item Label="属性" width='sm'>
+                <div ng-repeat="Plugin in AppPluginList" ng-if='Sel_Plugin === Plugin'>
+                    <div ng-repeat="Design in Plugin.Designs" ng-if='Sel_Design === Design'>
+                        <GTList ListCode='Design.Attributes' ItemCode="row">
+                            <a href class="list-group-item" ng-bind="row.Description" ng-class="{active:Sel_Attribute== row}" ng-click="event.SelectAttribute(row);"></a>
+                        </GTList>
+                    </div>
+                </div>
+            </Item>
+            <Item Label="标签" width='sm'>
+                <form name='form'>
+                    <TextBox ngmodel='Sel_Attribute.Id' ng-show='false' required></TextBox>
+                </form>
+                <AppPluginTag id='Tag' ng-show='Sel_Attribute.Id'></AppPluginTag>
+            </Item>
+        </Layout>
+    </pbody>
+    <pfoot>
+        <ButtonBar></ButtonBar>
+    </pfoot>
+</Panel>

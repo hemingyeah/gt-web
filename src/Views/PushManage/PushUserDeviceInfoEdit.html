@@ -1,0 +1,16 @@
+<panel Dialog>
+    <phead> <span ng-if='model.Id'>编辑[DeviceType]</span> <span ng-if='!model.Id'>新增[DeviceType]</span></phead>
+    <pbody>
+        <form gtform name='form'>
+            <FormRow colspan="2" Label="DeviceType" required="true">
+                <TextBox ngmodel="model.DeviceType" required="true"></TextBox>
+            </FormRow>
+            <FormRow colspan="2" Label="DeviceName" required="true">
+                <TextBox ngmodel="model.DeviceName" required="true"></TextBox>
+            </FormRow>
+        </form>
+    </pbody>
+    <pfoot>
+        <ButtonBar></ButtonBar>
+    </pfoot>
+</panel>

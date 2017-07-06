@@ -1,0 +1,26 @@
+<panel Dialog>
+    <phead> <span ng-if='model.Id'>编辑[标题]</span> <span ng-if='!model.Id'>新增[标题]</span></phead>
+    <pbody>
+        <form gtform name='form'>
+            <FormRow colspan="2" Label="标题" required="true">
+                <TextBox ngmodel="model.Title" required="true"></TextBox>
+            </FormRow>
+            <FormRow colspan="2" Label="操作类型" required="true">
+                <DropDownTreeList ngmodel="model.ActionTypeId" ParentId="8b428ce1-4516-c12f-85e3-08d3175bd348" configtree="event.ConfigTree()" DisplayModel="model.NoticeLevelName1" model="model" required="true"></DropDownTreeList>
+            </FormRow>
+            <FormRow colspan="2" Label="操作状态" required="true">
+                <DropDownTreeList ngmodel="model.ActionStateId" ParentId="9deaec62-7d6e-cc06-85e3-08d3175bd348" model="model" DisplayModel="model.NoticeLevelName" configtree="event.ConfigTree()" required="true"></DropDownTreeList>
+            </FormRow>
+            <FormRow colspan="2" Label="选择背景图片" required="true">
+                <img src="{{imgSrc}}" />
+                <FileInputBtn value="选择图片"></FileInputBtn>
+            </FormRow>
+            <FormRow colspan="2" Label="评论内容" required="true">
+                <RichTextBox value="评论内容" ngmodel="ActionContext" richtextid="richtext" uploadtempid="upload" required="true"></RichTextBox>
+            </FormRow>
+        </form>
+    </pbody>
+    <pfoot>
+        <ButtonBar></ButtonBar>
+    </pfoot>
+</panel>

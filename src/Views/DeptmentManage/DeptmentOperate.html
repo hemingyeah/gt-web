@@ -1,0 +1,11 @@
+   	<Panel gtform>
+   		<phead>组织机构信息</phead>
+   		<pbody>
+   			<RowTextBox Label="名称" ngmodel="model.DisplayName" Required></RowTextBox>
+   			<FormRow Label="排序">
+   				<input Required ui-jq="TouchSpin" type="text" value="0" ng-model="model.OrderIndex" class="form-control" data-min='0' data-verticalbuttons="true" data-verticalupclass="fa fa-caret-up"  data-verticaldownclass="fa fa-caret-down"></FormRow>
+   			<FormRow colspan='2'>
+   				<ButtonBar></ButtonBar>
+   			</FormRow>
+   		</pbody>
+   	</Panel>
